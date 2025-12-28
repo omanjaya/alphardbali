@@ -150,12 +150,12 @@ export function Footer() {
                         © {new Date().getFullYear()} {siteConfig.name}. {t('allRightsReserved')}
                     </p>
                     <div className="flex gap-8 text-xs uppercase tracking-wider">
-                        <Link href="/privacy" className="text-gray-600 hover:text-amber-400 transition-colors">
+                        <span className="text-gray-600 hover:text-amber-400 transition-colors cursor-pointer">
                             {t('privacy')}
-                        </Link>
-                        <Link href="/terms" className="text-gray-600 hover:text-amber-400 transition-colors">
+                        </span>
+                        <span className="text-gray-600 hover:text-amber-400 transition-colors cursor-pointer">
                             {t('terms')}
-                        </Link>
+                        </span>
                     </div>
                 </div>
 
