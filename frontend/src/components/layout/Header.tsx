@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import { Link, usePathname } from '@/i18n/navigation';
+import type { Pathnames } from '@/i18n/routing';
 
 export function Header() {
     const t = useTranslations('nav');
@@ -21,12 +22,12 @@ export function Header() {
     const logoRef = useRef<HTMLDivElement>(null);
     const navRef = useRef<HTMLDivElement>(null);
 
-    const isActive = (href: string) => {
+    const isActive = (href: Pathnames) => {
         if (href === '/') return pathname === '/';
         return pathname.startsWith(href);
     };
 
-    const navigation = [
+    const navigation: { href: Pathnames; label: string }[] = [
         { href: '/', label: t('home') },
         { href: '/armada', label: t('fleet') },
         { href: '/layanan', label: t('services') },
