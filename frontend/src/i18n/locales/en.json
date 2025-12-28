@@ -1,0 +1,199 @@
+{
+    "metadata": {
+        "title": "Alphard Bali - Premium Alphard Car Rental in Bali",
+        "description": "Premium Alphard car rental service in Bali with professional drivers. Airport transfer, wedding car, tours & travel. Easy booking, affordable prices."
+    },
+    "nav": {
+        "home": "Home",
+        "fleet": "Fleet",
+        "services": "Services",
+        "about": "About Us",
+        "contact": "Contact"
+    },
+    "hero": {
+        "subtitle": "PREMIUM SERVICE",
+        "title1": "Premium Alphard",
+        "title2": "Rental in Bali",
+        "description": "Experience luxury travel with our finest Alphard fleet and professional drivers. Premium transportation solution for all your needs in Bali.",
+        "cta": {
+            "book": "Book Now",
+            "fleet": "View Fleet"
+        }
+    },
+    "services": {
+        "sectionTitle": "Our Services",
+        "sectionSubtitle": "SERVICES",
+        "items": {
+            "dailyRental": {
+                "name": "Daily Rental",
+                "description": "Alphard rental with driver for your daily needs"
+            },
+            "airportTransfer": {
+                "name": "Airport Transfer",
+                "description": "Airport pickup and drop-off with premium comfort"
+            },
+            "weddingCar": {
+                "name": "Wedding Car",
+                "description": "Luxury wedding car for your special day"
+            },
+            "tour": {
+                "name": "Tours & Travel",
+                "description": "Explore Bali with maximum comfort"
+            },
+            "corporate": {
+                "name": "Corporate",
+                "description": "Transportation solutions for business needs"
+            },
+            "event": {
+                "name": "Event & MICE",
+                "description": "Fleet for large events and meetings"
+            }
+        }
+    },
+    "fleet": {
+        "sectionTitle": "Our Fleet",
+        "sectionSubtitle": "FLEET",
+        "perDay": "/day",
+        "seats": "Seats",
+        "transmission": "Transmission",
+        "year": "Year",
+        "automatic": "Automatic",
+        "bookNow": "Book Now",
+        "vehicles": {
+            "executiveLounge": {
+                "name": "Toyota Alphard Executive Lounge",
+                "type": "Premium MPV",
+                "description": "Ultimate luxury with Executive Lounge interior"
+            },
+            "alphardG": {
+                "name": "Toyota Alphard G",
+                "type": "Premium MPV",
+                "description": "Premium comfort at an affordable price"
+            }
+        }
+    },
+    "whyChooseUs": {
+        "sectionTitle": "Why Choose Us",
+        "sectionSubtitle": "ADVANTAGES",
+        "items": {
+            "professional": {
+                "title": "Professional Drivers",
+                "description": "Experienced, friendly drivers who know Bali routes"
+            },
+            "premium": {
+                "title": "Premium Fleet",
+                "description": "Well-maintained Alphard always in prime condition"
+            },
+            "flexible": {
+                "title": "Flexible",
+                "description": "Schedule according to your needs, available 24/7"
+            },
+            "affordable": {
+                "title": "Affordable Prices",
+                "description": "Competitive, transparent pricing with no hidden fees"
+            }
+        }
+    },
+    "testimonials": {
+        "sectionTitle": "What Our Clients Say",
+        "sectionSubtitle": "TESTIMONIALS"
+    },
+    "faq": {
+        "sectionTitle": "Frequently Asked Questions",
+        "sectionSubtitle": "FAQ",
+        "items": {
+            "price": {
+                "question": "How much is the Alphard rental per day?",
+                "answer": "Alphard rental prices start from IDR 1,800,000 to IDR 2,500,000 per day depending on the type and package selected. Price includes professional driver and fuel."
+            },
+            "driver": {
+                "question": "Is a driver included in the price?",
+                "answer": "Yes, all rental prices include a professional, experienced, and licensed driver. You don't need to worry about navigating Bali."
+            },
+            "booking": {
+                "question": "How do I book?",
+                "answer": "You can book through our website, WhatsApp, or phone. Just provide the date, duration, and pickup location. We will confirm availability within minutes."
+            },
+            "airport": {
+                "question": "Do you offer airport transfers?",
+                "answer": "Absolutely! We provide airport transfer service to and from Ngurah Rai Airport. The driver will wait at the arrival area with a name board."
+            },
+            "includes": {
+                "question": "What's included in the rental price?",
+                "answer": "Rental price includes: Alphard car, professional driver, fuel, mineral water, and tissues. Toll and parking fees are borne by the renter."
+            }
+        }
+    },
+    "cta": {
+        "title": "Ready for a Premium Journey?",
+        "description": "Contact us now for a luxurious transportation experience in Bali",
+        "whatsapp": "Chat WhatsApp",
+        "call": "Call Us"
+    },
+    "stats": {
+        "experience": "Years Experience",
+        "trips": "Successful Trips",
+        "satisfaction": "Customer Satisfaction",
+        "fleet": "Fleet Units"
+    },
+    "footer": {
+        "description": "Premium Alphard car rental service in Bali with professional drivers for an unforgettable travel experience.",
+        "services": "Services",
+        "company": "Company",
+        "contact": "Contact",
+        "dailyRental": "Daily Rental",
+        "airportTransfer": "Airport Transfer",
+        "weddingCar": "Wedding Car",
+        "tourTravel": "Tours & Travel",
+        "aboutUs": "About Us",
+        "ourFleet": "Our Fleet",
+        "faq": "FAQ",
+        "privacy": "Privacy",
+        "terms": "Terms & Conditions",
+        "copyright": "Copyright",
+        "allRightsReserved": "All rights reserved.",
+        "developedBy": "Developed by"
+    },
+    "contact": {
+        "pageTitle": "Contact Us",
+        "pageSubtitle": "CONTACT",
+        "description": "We're ready to help you. Contact us via WhatsApp, phone, or visit our office.",
+        "form": {
+            "name": "Full Name",
+            "email": "Email",
+            "phone": "Phone Number",
+            "message": "Message",
+            "submit": "Send Message"
+        },
+        "info": {
+            "address": "Address",
+            "phone": "Phone",
+            "email": "Email",
+            "hours": "Operating Hours",
+            "hoursValue": "Every day, 24 hours"
+        }
+    },
+    "about": {
+        "pageTitle": "About Us",
+        "pageSubtitle": "ABOUT",
+        "description": "Alphard Bali is a premium Alphard car rental provider in Bali with over 6 years of experience serving domestic and international tourists.",
+        "vision": {
+            "title": "Our Vision",
+            "description": "To be the leading premium transportation service provider in Bali with international service standards."
+        },
+        "mission": {
+            "title": "Our Mission",
+            "description": "To provide luxurious, safe, and comfortable travel experiences with the best fleet and professional drivers."
+        }
+    },
+    "common": {
+        "bookNow": "Book Now",
+        "learnMore": "Learn More",
+        "viewAll": "View All",
+        "loading": "Loading...",
+        "error": "An error occurred",
+        "success": "Success",
+        "close": "Close",
+        "back": "Back"
+    }
+}

@@ -1,0 +1,199 @@
+{
+    "metadata": {
+        "title": "Alphard Bali - バリ島プレミアムアルファードレンタカー",
+        "description": "バリ島でプロのドライバー付きプレミアムアルファードレンタカーサービス。空港送迎、ウェディングカー、ツアー＆トラベル。簡単予約、お手頃価格。"
+    },
+    "nav": {
+        "home": "ホーム",
+        "fleet": "車両",
+        "services": "サービス",
+        "about": "会社概要",
+        "contact": "お問い合わせ"
+    },
+    "hero": {
+        "subtitle": "プレミアムサービス",
+        "title1": "プレミアムアルファード",
+        "title2": "バリ島レンタル",
+        "description": "最高級のアルファードフリートとプロのドライバーで贅沢な旅をお楽しみください。バリ島でのすべてのニーズに対応するプレミアム輸送ソリューション。",
+        "cta": {
+            "book": "今すぐ予約",
+            "fleet": "車両を見る"
+        }
+    },
+    "services": {
+        "sectionTitle": "サービス一覧",
+        "sectionSubtitle": "サービス",
+        "items": {
+            "dailyRental": {
+                "name": "デイリーレンタル",
+                "description": "日常のニーズに対応したドライバー付きアルファードレンタル"
+            },
+            "airportTransfer": {
+                "name": "空港送迎",
+                "description": "プレミアムな快適さで空港への送迎"
+            },
+            "weddingCar": {
+                "name": "ウェディングカー",
+                "description": "特別な日のための高級ウェディングカー"
+            },
+            "tour": {
+                "name": "ツアー＆トラベル",
+                "description": "最高の快適さでバリ島を探索"
+            },
+            "corporate": {
+                "name": "法人向け",
+                "description": "ビジネスニーズに対応した輸送ソリューション"
+            },
+            "event": {
+                "name": "イベント＆MICE",
+                "description": "大規模イベントや会議向けのフリート"
+            }
+        }
+    },
+    "fleet": {
+        "sectionTitle": "車両紹介",
+        "sectionSubtitle": "車両",
+        "perDay": "/日",
+        "seats": "座席",
+        "transmission": "トランスミッション",
+        "year": "年式",
+        "automatic": "オートマチック",
+        "bookNow": "今すぐ予約",
+        "vehicles": {
+            "executiveLounge": {
+                "name": "トヨタ アルファード エグゼクティブラウンジ",
+                "type": "プレミアムMPV",
+                "description": "エグゼクティブラウンジ内装の究極の贅沢"
+            },
+            "alphardG": {
+                "name": "トヨタ アルファード G",
+                "type": "プレミアムMPV",
+                "description": "手頃な価格でプレミアムな快適さ"
+            }
+        }
+    },
+    "whyChooseUs": {
+        "sectionTitle": "選ばれる理由",
+        "sectionSubtitle": "メリット",
+        "items": {
+            "professional": {
+                "title": "プロのドライバー",
+                "description": "バリ島のルートを熟知した経験豊富でフレンドリーなドライバー"
+            },
+            "premium": {
+                "title": "プレミアムフリート",
+                "description": "常に最高の状態に整備されたアルファード"
+            },
+            "flexible": {
+                "title": "フレキシブル",
+                "description": "お客様のニーズに合わせたスケジュール、24時間対応"
+            },
+            "affordable": {
+                "title": "お手頃価格",
+                "description": "隠れた費用のない競争力のある透明な価格設定"
+            }
+        }
+    },
+    "testimonials": {
+        "sectionTitle": "お客様の声",
+        "sectionSubtitle": "口コミ"
+    },
+    "faq": {
+        "sectionTitle": "よくある質問",
+        "sectionSubtitle": "FAQ",
+        "items": {
+            "price": {
+                "question": "アルファードの1日のレンタル料金はいくらですか？",
+                "answer": "アルファードのレンタル料金は、タイプとパッケージによって1日あたりRp 1,800,000からRp 2,500,000です。料金にはプロのドライバーと燃料が含まれています。"
+            },
+            "driver": {
+                "question": "料金にドライバーは含まれていますか？",
+                "answer": "はい、すべてのレンタル料金には、経験豊富で免許を持つプロのドライバーが含まれています。バリ島でのナビゲーションの心配は不要です。"
+            },
+            "booking": {
+                "question": "予約方法は？",
+                "answer": "ウェブサイト、WhatsApp、または電話で予約できます。日付、期間、ピックアップ場所をお知らせください。数分以内に空き状況を確認いたします。"
+            },
+            "airport": {
+                "question": "空港送迎はありますか？",
+                "answer": "もちろん！ングラライ空港への送迎サービスを提供しています。ドライバーはネームボードを持って到着エリアでお待ちしています。"
+            },
+            "includes": {
+                "question": "レンタル料金には何が含まれていますか？",
+                "answer": "レンタル料金には、アルファード車両、プロのドライバー、燃料、ミネラルウォーター、ティッシュが含まれています。高速道路料金と駐車料金はお客様のご負担となります。"
+            }
+        }
+    },
+    "cta": {
+        "title": "プレミアムな旅の準備はできましたか？",
+        "description": "バリ島での贅沢な輸送体験については、今すぐお問い合わせください",
+        "whatsapp": "WhatsAppでチャット",
+        "call": "電話する"
+    },
+    "stats": {
+        "experience": "年の経験",
+        "trips": "成功したトリップ",
+        "satisfaction": "顧客満足度",
+        "fleet": "フリート台数"
+    },
+    "footer": {
+        "description": "忘れられない旅行体験のためのプロのドライバー付きバリ島プレミアムアルファードレンタカーサービス。",
+        "services": "サービス",
+        "company": "会社情報",
+        "contact": "お問い合わせ",
+        "dailyRental": "デイリーレンタル",
+        "airportTransfer": "空港送迎",
+        "weddingCar": "ウェディングカー",
+        "tourTravel": "ツアー＆トラベル",
+        "aboutUs": "会社概要",
+        "ourFleet": "車両紹介",
+        "faq": "FAQ",
+        "privacy": "プライバシー",
+        "terms": "利用規約",
+        "copyright": "著作権",
+        "allRightsReserved": "全著作権所有。",
+        "developedBy": "開発者"
+    },
+    "contact": {
+        "pageTitle": "お問い合わせ",
+        "pageSubtitle": "連絡先",
+        "description": "いつでもお手伝いいたします。WhatsApp、電話、またはオフィスへお越しください。",
+        "form": {
+            "name": "お名前",
+            "email": "メールアドレス",
+            "phone": "電話番号",
+            "message": "メッセージ",
+            "submit": "メッセージを送信"
+        },
+        "info": {
+            "address": "住所",
+            "phone": "電話",
+            "email": "メール",
+            "hours": "営業時間",
+            "hoursValue": "毎日24時間"
+        }
+    },
+    "about": {
+        "pageTitle": "会社概要",
+        "pageSubtitle": "私たちについて",
+        "description": "Alphard Baliは、6年以上の経験を持つバリ島のプレミアムアルファードレンタカープロバイダーで、国内外の観光客にサービスを提供しています。",
+        "vision": {
+            "title": "ビジョン",
+            "description": "国際的なサービス基準でバリ島をリードするプレミアム輸送サービスプロバイダーになること。"
+        },
+        "mission": {
+            "title": "ミッション",
+            "description": "最高のフリートとプロのドライバーで、贅沢で安全、快適な旅行体験を提供すること。"
+        }
+    },
+    "common": {
+        "bookNow": "今すぐ予約",
+        "learnMore": "詳細を見る",
+        "viewAll": "すべて見る",
+        "loading": "読み込み中...",
+        "error": "エラーが発生しました",
+        "success": "成功",
+        "close": "閉じる",
+        "back": "戻る"
+    }
+}

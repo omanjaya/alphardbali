@@ -1,0 +1,199 @@
+{
+    "metadata": {
+        "title": "Alphard Bali - Sewa Mobil Alphard Premium di Bali",
+        "description": "Layanan sewa mobil Alphard premium di Bali dengan supir profesional. Airport transfer, wedding car, tour & wisata. Booking mudah, harga terjangkau."
+    },
+    "nav": {
+        "home": "Beranda",
+        "fleet": "Armada",
+        "services": "Layanan",
+        "about": "Tentang Kami",
+        "contact": "Kontak"
+    },
+    "hero": {
+        "subtitle": "LAYANAN PREMIUM",
+        "title1": "Sewa Alphard",
+        "title2": "Premium di Bali",
+        "description": "Nikmati perjalanan mewah dengan armada Alphard terbaik dan supir profesional. Solusi transportasi premium untuk setiap kebutuhan Anda di Bali.",
+        "cta": {
+            "book": "Pesan Sekarang",
+            "fleet": "Lihat Armada"
+        }
+    },
+    "services": {
+        "sectionTitle": "Layanan Kami",
+        "sectionSubtitle": "LAYANAN",
+        "items": {
+            "dailyRental": {
+                "name": "Sewa Harian",
+                "description": "Rental Alphard dengan supir untuk kebutuhan harian Anda"
+            },
+            "airportTransfer": {
+                "name": "Airport Transfer",
+                "description": "Antar jemput bandara dengan kenyamanan premium"
+            },
+            "weddingCar": {
+                "name": "Wedding Car",
+                "description": "Mobil pengantin mewah untuk hari spesial Anda"
+            },
+            "tour": {
+                "name": "Tour & Wisata",
+                "description": "Jelajahi Bali dengan kenyamanan maksimal"
+            },
+            "corporate": {
+                "name": "Corporate",
+                "description": "Solusi transportasi untuk kebutuhan bisnis"
+            },
+            "event": {
+                "name": "Event & MICE",
+                "description": "Armada untuk event dan meeting dalam jumlah besar"
+            }
+        }
+    },
+    "fleet": {
+        "sectionTitle": "Armada Kami",
+        "sectionSubtitle": "ARMADA",
+        "perDay": "/hari",
+        "seats": "Kursi",
+        "transmission": "Transmisi",
+        "year": "Tahun",
+        "automatic": "Otomatis",
+        "bookNow": "Pesan Sekarang",
+        "vehicles": {
+            "executiveLounge": {
+                "name": "Toyota Alphard Executive Lounge",
+                "type": "Premium MPV",
+                "description": "Kemewahan tertinggi dengan interior Executive Lounge"
+            },
+            "alphardG": {
+                "name": "Toyota Alphard G",
+                "type": "Premium MPV",
+                "description": "Kenyamanan premium dengan harga terjangkau"
+            }
+        }
+    },
+    "whyChooseUs": {
+        "sectionTitle": "Mengapa Memilih Kami",
+        "sectionSubtitle": "KEUNGGULAN",
+        "items": {
+            "professional": {
+                "title": "Supir Profesional",
+                "description": "Supir berpengalaman, ramah, dan menguasai rute Bali"
+            },
+            "premium": {
+                "title": "Armada Premium",
+                "description": "Alphard terawat dengan kondisi selalu prima"
+            },
+            "flexible": {
+                "title": "Fleksibel",
+                "description": "Jadwal sesuai kebutuhan, 24 jam tersedia"
+            },
+            "affordable": {
+                "title": "Harga Terjangkau",
+                "description": "Harga kompetitif, transparan tanpa biaya tersembunyi"
+            }
+        }
+    },
+    "testimonials": {
+        "sectionTitle": "Apa Kata Klien",
+        "sectionSubtitle": "TESTIMONI"
+    },
+    "faq": {
+        "sectionTitle": "Pertanyaan Umum",
+        "sectionSubtitle": "FAQ",
+        "items": {
+            "price": {
+                "question": "Berapa harga sewa Alphard per hari?",
+                "answer": "Harga sewa Alphard mulai dari Rp 1.800.000 hingga Rp 2.500.000 per hari tergantung tipe dan paket yang dipilih. Harga sudah termasuk supir profesional dan BBM."
+            },
+            "driver": {
+                "question": "Apakah harga sudah termasuk supir?",
+                "answer": "Ya, semua harga sewa sudah termasuk supir profesional yang berpengalaman dan berlisensi. Anda tidak perlu khawatir tentang navigasi di Bali."
+            },
+            "booking": {
+                "question": "Bagaimana cara booking?",
+                "answer": "Anda bisa booking melalui website kami, WhatsApp, atau telepon. Cukup informasikan tanggal, durasi, dan lokasi penjemputan. Kami akan konfirmasi ketersediaan dalam hitungan menit."
+            },
+            "airport": {
+                "question": "Apakah bisa airport transfer?",
+                "answer": "Tentu! Kami menyediakan layanan airport transfer dari dan ke Bandara Ngurah Rai. Supir akan menunggu di area kedatangan dengan papan nama."
+            },
+            "includes": {
+                "question": "Apa saja yang termasuk dalam harga sewa?",
+                "answer": "Harga sewa sudah termasuk: mobil Alphard, supir profesional, BBM, air mineral, dan tissue. Untuk tol dan parkir ditanggung oleh penyewa."
+            }
+        }
+    },
+    "cta": {
+        "title": "Siap untuk Perjalanan Premium?",
+        "description": "Hubungi kami sekarang untuk pengalaman transportasi mewah di Bali",
+        "whatsapp": "Chat WhatsApp",
+        "call": "Hubungi Kami"
+    },
+    "stats": {
+        "experience": "Tahun Pengalaman",
+        "trips": "Perjalanan Sukses",
+        "satisfaction": "Kepuasan Pelanggan",
+        "fleet": "Unit Armada"
+    },
+    "footer": {
+        "description": "Layanan sewa mobil Alphard premium di Bali dengan supir profesional untuk pengalaman perjalanan yang tak terlupakan.",
+        "services": "Layanan",
+        "company": "Perusahaan",
+        "contact": "Kontak",
+        "dailyRental": "Sewa Harian",
+        "airportTransfer": "Airport Transfer",
+        "weddingCar": "Wedding Car",
+        "tourTravel": "Tour & Wisata",
+        "aboutUs": "Tentang Kami",
+        "ourFleet": "Armada Kami",
+        "faq": "FAQ",
+        "privacy": "Privasi",
+        "terms": "Syarat & Ketentuan",
+        "copyright": "Hak Cipta",
+        "allRightsReserved": "Semua hak dilindungi.",
+        "developedBy": "Dikembangkan oleh"
+    },
+    "contact": {
+        "pageTitle": "Hubungi Kami",
+        "pageSubtitle": "KONTAK",
+        "description": "Kami siap membantu Anda. Hubungi kami melalui WhatsApp, telepon, atau kunjungi kantor kami.",
+        "form": {
+            "name": "Nama Lengkap",
+            "email": "Email",
+            "phone": "Nomor Telepon",
+            "message": "Pesan",
+            "submit": "Kirim Pesan"
+        },
+        "info": {
+            "address": "Alamat",
+            "phone": "Telepon",
+            "email": "Email",
+            "hours": "Jam Operasional",
+            "hoursValue": "Setiap hari, 24 jam"
+        }
+    },
+    "about": {
+        "pageTitle": "Tentang Kami",
+        "pageSubtitle": "TENTANG",
+        "description": "Alphard Bali adalah penyedia layanan sewa mobil Alphard premium di Bali dengan pengalaman lebih dari 6 tahun melayani wisatawan domestik dan mancanegara.",
+        "vision": {
+            "title": "Visi Kami",
+            "description": "Menjadi penyedia layanan transportasi premium terdepan di Bali dengan standar pelayanan internasional."
+        },
+        "mission": {
+            "title": "Misi Kami",
+            "description": "Memberikan pengalaman perjalanan mewah, aman, dan nyaman dengan armada terbaik dan supir profesional."
+        }
+    },
+    "common": {
+        "bookNow": "Pesan Sekarang",
+        "learnMore": "Selengkapnya",
+        "viewAll": "Lihat Semua",
+        "loading": "Memuat...",
+        "error": "Terjadi kesalahan",
+        "success": "Berhasil",
+        "close": "Tutup",
+        "back": "Kembali"
+    }
+}

@@ -1,19 +1,33 @@
 'use client';
 
 import { useRef } from 'react';
-import Link from 'next/link';
 import { MapPin, Phone, Mail, Instagram, Facebook, ArrowUpRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { siteConfig } from '@/config/site';
-import { footerNavigation } from '@/constants/data';
 import { useStaggerAnimation } from '@/hooks/useGSAP';
+import { Link } from '@/i18n/navigation';
 
 export function Footer() {
+    const t = useTranslations('footer');
     const footerRef = useRef<HTMLElement>(null);
 
     useStaggerAnimation(footerRef, '.footer-animate', {
         opacity: 1,
         y: 0,
     });
+
+    const servicesLinks = [
+        { href: '/layanan', label: t('dailyRental') },
+        { href: '/layanan', label: t('airportTransfer') },
+        { href: '/layanan', label: t('weddingCar') },
+        { href: '/layanan', label: t('tourTravel') },
+    ];
+
+    const companyLinks = [
+        { href: '/tentang', label: t('aboutUs') },
+        { href: '/armada', label: t('ourFleet') },
+        { href: '/#faq', label: t('faq') },
+    ];
 
     return (
         <footer ref={footerRef} className="bg-black text-white relative overflow-hidden">
@@ -35,7 +49,7 @@ export function Footer() {
                             </span>
                         </Link>
                         <p className="text-gray-500 leading-relaxed mb-8 max-w-sm">
-                            Layanan sewa mobil Alphard premium di Bali dengan supir profesional untuk pengalaman perjalanan yang tak terlupakan.
+                            {t('description')}
                         </p>
                         <div className="flex gap-4">
                             <a
@@ -59,10 +73,10 @@ export function Footer() {
 
                     {/* Services */}
                     <div className="lg:col-span-2 footer-animate">
-                        <h4 className="text-xs uppercase tracking-[0.2em] text-amber-400 mb-6">Services</h4>
+                        <h4 className="text-xs uppercase tracking-[0.2em] text-amber-400 mb-6">{t('services')}</h4>
                         <ul className="space-y-4">
-                            {footerNavigation.services.map((item) => (
-                                <li key={item.href}>
+                            {servicesLinks.map((item, index) => (
+                                <li key={index}>
                                     <Link
                                         href={item.href}
                                         className="text-gray-500 hover:text-white transition-colors text-sm flex items-center group"
@@ -77,10 +91,10 @@ export function Footer() {
 
                     {/* Company */}
                     <div className="lg:col-span-2 footer-animate">
-                        <h4 className="text-xs uppercase tracking-[0.2em] text-amber-400 mb-6">Company</h4>
+                        <h4 className="text-xs uppercase tracking-[0.2em] text-amber-400 mb-6">{t('company')}</h4>
                         <ul className="space-y-4">
-                            {footerNavigation.company.map((item) => (
-                                <li key={item.href}>
+                            {companyLinks.map((item, index) => (
+                                <li key={index}>
                                     <Link
                                         href={item.href}
                                         className="text-gray-500 hover:text-white transition-colors text-sm flex items-center group"
@@ -95,7 +109,7 @@ export function Footer() {
 
                     {/* Contact */}
                     <div className="lg:col-span-4 footer-animate">
-                        <h4 className="text-xs uppercase tracking-[0.2em] text-amber-400 mb-6">Contact</h4>
+                        <h4 className="text-xs uppercase tracking-[0.2em] text-amber-400 mb-6">{t('contact')}</h4>
                         <ul className="space-y-5">
                             <li className="flex items-start gap-4">
                                 <div className="w-8 h-8 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -132,14 +146,14 @@ export function Footer() {
                 {/* Bottom */}
                 <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-gray-600 text-sm">
-                        © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+                        © {new Date().getFullYear()} {siteConfig.name}. {t('allRightsReserved')}
                     </p>
                     <div className="flex gap-8 text-xs uppercase tracking-wider">
                         <Link href="/privacy" className="text-gray-600 hover:text-amber-400 transition-colors">
-                            Privacy
+                            {t('privacy')}
                         </Link>
                         <Link href="/terms" className="text-gray-600 hover:text-amber-400 transition-colors">
-                            Terms
+                            {t('terms')}
                         </Link>
                     </div>
                 </div>
@@ -147,7 +161,7 @@ export function Footer() {
                 {/* Developer Credit */}
                 <div className="border-t border-white/5 mt-8 pt-6 text-center">
                     <p className="text-gray-700 text-xs">
-                        Developed by <a href="https://instagram.com/omanjayaaa" target="_blank" rel="noopener noreferrer" className="text-amber-500/70 hover:text-amber-400 transition-colors">omanjayaaa</a>
+                        {t('developedBy')} <a href="https://instagram.com/omanjayaaa" target="_blank" rel="noopener noreferrer" className="text-amber-500/70 hover:text-amber-400 transition-colors">omanjayaaa</a>
                     </p>
                 </div>
             </div>

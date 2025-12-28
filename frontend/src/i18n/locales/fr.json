@@ -1,0 +1,199 @@
+{
+    "metadata": {
+        "title": "Alphard Bali - Location Premium Alphard à Bali",
+        "description": "Service de location premium de voitures Alphard à Bali avec chauffeurs professionnels. Transfert aéroport, voiture de mariage, tours et voyages. Réservation facile, prix abordables."
+    },
+    "nav": {
+        "home": "Accueil",
+        "fleet": "Flotte",
+        "services": "Services",
+        "about": "À propos",
+        "contact": "Contact"
+    },
+    "hero": {
+        "subtitle": "SERVICE PREMIUM",
+        "title1": "Alphard Premium",
+        "title2": "Location à Bali",
+        "description": "Vivez un voyage de luxe avec notre meilleure flotte d'Alphard et des chauffeurs professionnels. Solution de transport premium pour tous vos besoins à Bali.",
+        "cta": {
+            "book": "Réserver",
+            "fleet": "Voir la flotte"
+        }
+    },
+    "services": {
+        "sectionTitle": "Nos services",
+        "sectionSubtitle": "SERVICES",
+        "items": {
+            "dailyRental": {
+                "name": "Location journalière",
+                "description": "Location d'Alphard avec chauffeur pour vos besoins quotidiens"
+            },
+            "airportTransfer": {
+                "name": "Transfert aéroport",
+                "description": "Prise en charge et dépose à l'aéroport avec confort premium"
+            },
+            "weddingCar": {
+                "name": "Voiture de mariage",
+                "description": "Voiture de mariage luxueuse pour votre jour spécial"
+            },
+            "tour": {
+                "name": "Tours et voyages",
+                "description": "Explorez Bali avec un maximum de confort"
+            },
+            "corporate": {
+                "name": "Entreprise",
+                "description": "Solutions de transport pour les besoins professionnels"
+            },
+            "event": {
+                "name": "Événements et MICE",
+                "description": "Flotte pour grands événements et réunions"
+            }
+        }
+    },
+    "fleet": {
+        "sectionTitle": "Notre flotte",
+        "sectionSubtitle": "FLOTTE",
+        "perDay": "/jour",
+        "seats": "Places",
+        "transmission": "Transmission",
+        "year": "Année",
+        "automatic": "Automatique",
+        "bookNow": "Réserver",
+        "vehicles": {
+            "executiveLounge": {
+                "name": "Toyota Alphard Executive Lounge",
+                "type": "MPV Premium",
+                "description": "Luxe ultime avec intérieur Executive Lounge"
+            },
+            "alphardG": {
+                "name": "Toyota Alphard G",
+                "type": "MPV Premium",
+                "description": "Confort premium à prix abordable"
+            }
+        }
+    },
+    "whyChooseUs": {
+        "sectionTitle": "Pourquoi nous choisir",
+        "sectionSubtitle": "AVANTAGES",
+        "items": {
+            "professional": {
+                "title": "Chauffeurs professionnels",
+                "description": "Chauffeurs expérimentés et sympathiques qui connaissent les routes de Bali"
+            },
+            "premium": {
+                "title": "Flotte premium",
+                "description": "Alphard bien entretenus toujours en parfait état"
+            },
+            "flexible": {
+                "title": "Flexible",
+                "description": "Horaires selon vos besoins, disponible 24h/24"
+            },
+            "affordable": {
+                "title": "Prix abordables",
+                "description": "Tarifs compétitifs et transparents sans frais cachés"
+            }
+        }
+    },
+    "testimonials": {
+        "sectionTitle": "Ce que disent nos clients",
+        "sectionSubtitle": "TÉMOIGNAGES"
+    },
+    "faq": {
+        "sectionTitle": "Questions fréquentes",
+        "sectionSubtitle": "FAQ",
+        "items": {
+            "price": {
+                "question": "Combien coûte la location d'Alphard par jour ?",
+                "answer": "Les prix de location d'Alphard commencent de 1 800 000 à 2 500 000 IDR par jour selon le type et le forfait choisi. Le prix inclut le chauffeur professionnel et le carburant."
+            },
+            "driver": {
+                "question": "Le chauffeur est-il inclus dans le prix ?",
+                "answer": "Oui, tous les prix de location incluent un chauffeur professionnel, expérimenté et agréé. Vous n'avez pas à vous soucier de la navigation à Bali."
+            },
+            "booking": {
+                "question": "Comment réserver ?",
+                "answer": "Vous pouvez réserver via notre site web, WhatsApp ou par téléphone. Indiquez simplement la date, la durée et le lieu de prise en charge. Nous confirmerons la disponibilité en quelques minutes."
+            },
+            "airport": {
+                "question": "Proposez-vous des transferts aéroport ?",
+                "answer": "Absolument ! Nous proposons un service de transfert vers et depuis l'aéroport de Ngurah Rai. Le chauffeur vous attendra dans la zone d'arrivée avec une pancarte à votre nom."
+            },
+            "includes": {
+                "question": "Qu'est-ce qui est inclus dans le prix de location ?",
+                "answer": "Le prix de location comprend : la voiture Alphard, le chauffeur professionnel, le carburant, l'eau minérale et les mouchoirs. Les frais de péage et de stationnement sont à la charge du locataire."
+            }
+        }
+    },
+    "cta": {
+        "title": "Prêt pour un voyage premium ?",
+        "description": "Contactez-nous maintenant pour une expérience de transport luxueuse à Bali",
+        "whatsapp": "Chat WhatsApp",
+        "call": "Appelez-nous"
+    },
+    "stats": {
+        "experience": "Années d'expérience",
+        "trips": "Voyages réussis",
+        "satisfaction": "Satisfaction client",
+        "fleet": "Véhicules"
+    },
+    "footer": {
+        "description": "Service de location premium de voitures Alphard à Bali avec chauffeurs professionnels pour une expérience de voyage inoubliable.",
+        "services": "Services",
+        "company": "Entreprise",
+        "contact": "Contact",
+        "dailyRental": "Location journalière",
+        "airportTransfer": "Transfert aéroport",
+        "weddingCar": "Voiture de mariage",
+        "tourTravel": "Tours et voyages",
+        "aboutUs": "À propos",
+        "ourFleet": "Notre flotte",
+        "faq": "FAQ",
+        "privacy": "Confidentialité",
+        "terms": "Conditions générales",
+        "copyright": "Droits d'auteur",
+        "allRightsReserved": "Tous droits réservés.",
+        "developedBy": "Développé par"
+    },
+    "contact": {
+        "pageTitle": "Contactez-nous",
+        "pageSubtitle": "CONTACT",
+        "description": "Nous sommes prêts à vous aider. Contactez-nous via WhatsApp, téléphone ou visitez notre bureau.",
+        "form": {
+            "name": "Nom complet",
+            "email": "Email",
+            "phone": "Téléphone",
+            "message": "Message",
+            "submit": "Envoyer le message"
+        },
+        "info": {
+            "address": "Adresse",
+            "phone": "Téléphone",
+            "email": "Email",
+            "hours": "Heures d'ouverture",
+            "hoursValue": "Tous les jours, 24 heures"
+        }
+    },
+    "about": {
+        "pageTitle": "À propos de nous",
+        "pageSubtitle": "À PROPOS",
+        "description": "Alphard Bali est un fournisseur premium de location de voitures Alphard à Bali avec plus de 6 ans d'expérience au service des touristes nationaux et internationaux.",
+        "vision": {
+            "title": "Notre vision",
+            "description": "Devenir le principal fournisseur de services de transport premium à Bali avec des standards de service internationaux."
+        },
+        "mission": {
+            "title": "Notre mission",
+            "description": "Offrir des expériences de voyage luxueuses, sûres et confortables avec la meilleure flotte et des chauffeurs professionnels."
+        }
+    },
+    "common": {
+        "bookNow": "Réserver",
+        "learnMore": "En savoir plus",
+        "viewAll": "Voir tout",
+        "loading": "Chargement...",
+        "error": "Une erreur s'est produite",
+        "success": "Succès",
+        "close": "Fermer",
+        "back": "Retour"
+    }
+}

@@ -2,46 +2,36 @@
 
 import { useRef, useEffect } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { ArrowRight, Play, Shield, Clock, Award } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { gsap } from '@/lib/gsap/config';
 import { FadeIn } from '@/components/animations/TextReveal';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
+import { Link } from '@/i18n/navigation';
 
 export function HeroSection() {
+    const t = useTranslations('hero');
+    const tStats = useTranslations('stats');
+    const tCommon = useTranslations('common');
     const heroRef = useRef<HTMLElement>(null);
     const imageRef = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
-    const cardRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Image scale reveal
             gsap.fromTo(
                 imageRef.current,
                 { scale: 1.2, opacity: 0 },
                 { scale: 1, opacity: 1, duration: 2, ease: 'power2.out' }
             );
 
-            // Title reveal with clip-path
             gsap.fromTo(
                 '.hero-title-line',
-                {
-                    y: 100,
-                    opacity: 0,
-                },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1.2,
-                    stagger: 0.15,
-                    ease: 'power4.out',
-                    delay: 0.5,
-                }
+                { y: 100, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.2, stagger: 0.15, ease: 'power4.out', delay: 0.5 }
             );
 
-            // Parallax on scroll
             gsap.to(imageRef.current, {
                 yPercent: 15,
                 ease: 'none',
@@ -53,13 +43,6 @@ export function HeroSection() {
                 },
             });
 
-            // Gradient line animation
-            gsap.to('.gradient-line', {
-                backgroundPosition: '200% center',
-                duration: 3,
-                repeat: -1,
-                ease: 'none',
-            });
         });
 
         return () => ctx.revert();
@@ -76,13 +59,12 @@ export function HeroSection() {
                     src="/images/hero/hero.png"
                     alt="Toyota Alphard luxury car rental in Bali"
                     fill
+                    sizes="100vw"
                     priority
                     className="object-cover object-center"
                 />
-                {/* Premium dark overlay with gradient */}
                 <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/40" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
-                {/* Noise texture overlay for premium feel */}
                 <div className="absolute inset-0 opacity-[0.03]" style={{
                     backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
                 }} />
@@ -91,8 +73,6 @@ export function HeroSection() {
             {/* Decorative Elements */}
             <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[150px]" />
             <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-amber-600/5 rounded-full blur-[120px]" />
-
-            {/* Left decorative line */}
             <div className="absolute left-8 top-1/4 bottom-1/4 w-px bg-gradient-to-b from-transparent via-amber-500/30 to-transparent hidden lg:block" />
 
             {/* Content */}
@@ -100,47 +80,32 @@ export function HeroSection() {
                 <div className="grid lg:grid-cols-12 gap-12 items-center">
                     {/* Left Content */}
                     <div className="lg:col-span-7">
-                        {/* Premium Badge */}
                         <FadeIn delay={0.2} className="mb-8">
                             <div className="inline-flex items-center gap-3">
                                 <div className="w-12 h-px bg-gradient-to-r from-transparent to-amber-500" />
                                 <span className="text-amber-400 text-sm tracking-[0.3em] uppercase font-light">
-                                    Premium Experience
+                                    {t('subtitle')}
                                 </span>
                             </div>
                         </FadeIn>
 
-                        {/* Main Title */}
                         <div className="overflow-hidden mb-8">
                             <h1 ref={titleRef} className="text-white">
                                 <span className="hero-title-line block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extralight tracking-tight">
-                                    Jelajahi Bali
+                                    {t('title1')}
                                 </span>
                                 <span className="hero-title-line block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mt-2">
-                                    dengan{' '}
-                                    <span className="relative inline-block">
-                                        <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500">
-                                            Kemewahan
-                                        </span>
-                                        <span className="absolute -bottom-2 left-0 right-0 h-px gradient-line" style={{
-                                            background: 'linear-gradient(90deg, transparent, #f59e0b, transparent)',
-                                            backgroundSize: '200% 100%',
-                                        }} />
-                                    </span>
+                                    {t('title2')}
                                 </span>
                             </h1>
                         </div>
 
-                        {/* Subtitle */}
                         <FadeIn delay={0.9} className="mb-10">
                             <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl font-light">
-                                Rasakan pengalaman eksklusif dengan
-                                <span className="text-white font-normal"> Toyota Alphard </span>
-                                dan supir profesional berlisensi. Standar kemewahan tertinggi untuk setiap perjalanan.
+                                {t('description')}
                             </p>
                         </FadeIn>
 
-                        {/* Features Row */}
                         <FadeIn delay={1.0} className="flex flex-wrap gap-6 mb-10">
                             <div className="flex items-center gap-2 text-gray-400">
                                 <div className="w-8 h-8 rounded-full border border-amber-500/30 flex items-center justify-center">
@@ -162,7 +127,6 @@ export function HeroSection() {
                             </div>
                         </FadeIn>
 
-                        {/* CTAs */}
                         <FadeIn delay={1.1} className="flex flex-col sm:flex-row gap-4">
                             <Button
                                 size="lg"
@@ -171,7 +135,7 @@ export function HeroSection() {
                             >
                                 <a href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Halo, saya ingin booking Alphard`}>
                                     <span className="relative z-10 flex items-center">
-                                        BOOK NOW
+                                        {t('cta.book')}
                                         <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                     </span>
                                 </a>
@@ -185,7 +149,7 @@ export function HeroSection() {
                             >
                                 <Link href="/armada">
                                     <Play className="mr-3 w-4 h-4 group-hover:scale-110 transition-transform" />
-                                    VIEW FLEET
+                                    {t('cta.fleet')}
                                 </Link>
                             </Button>
                         </FadeIn>
@@ -194,9 +158,7 @@ export function HeroSection() {
                     {/* Right Stats Card */}
                     <div className="lg:col-span-5 hidden lg:block">
                         <div className="relative">
-                            {/* Glassmorphism Card with smooth animation */}
-                            <div className="glass-card-animate relative p-8 border border-white/10 rounded-sm">
-                                {/* Corner decorations */}
+                            <div className="glass-card-animate relative p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-sm shadow-2xl">
                                 <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-amber-500/50" />
                                 <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-amber-500/50" />
 
@@ -207,19 +169,18 @@ export function HeroSection() {
                                 <div className="grid grid-cols-3 gap-6 mb-8">
                                     <div className="text-center">
                                         <div className="text-3xl md:text-4xl font-bold text-white mb-1">6<span className="text-amber-500">+</span></div>
-                                        <div className="text-xs text-gray-500 uppercase tracking-wider">Years</div>
+                                        <div className="text-xs text-gray-500 uppercase tracking-wider">{tStats('experience')}</div>
                                     </div>
                                     <div className="text-center border-x border-white/10">
                                         <div className="text-3xl md:text-4xl font-bold text-white mb-1">5K<span className="text-amber-500">+</span></div>
-                                        <div className="text-xs text-gray-500 uppercase tracking-wider">Trips</div>
+                                        <div className="text-xs text-gray-500 uppercase tracking-wider">{tStats('trips')}</div>
                                     </div>
                                     <div className="text-center">
                                         <div className="text-3xl md:text-4xl font-bold text-white mb-1">98<span className="text-amber-500">%</span></div>
-                                        <div className="text-xs text-gray-500 uppercase tracking-wider">Happy</div>
+                                        <div className="text-xs text-gray-500 uppercase tracking-wider">{tStats('satisfaction')}</div>
                                     </div>
                                 </div>
 
-                                {/* Rating */}
                                 <div className="flex items-center justify-center gap-2 pt-6 border-t border-white/10">
                                     <div className="flex gap-1">
                                         {[...Array(5)].map((_, i) => (
@@ -232,7 +193,6 @@ export function HeroSection() {
                                     <span className="text-gray-500 text-sm">Rating</span>
                                 </div>
 
-                                {/* Floating Price Tag */}
                                 <div className="absolute -bottom-4 -left-4 bg-amber-500 text-black px-6 py-3">
                                     <div className="text-xs font-medium uppercase tracking-wider">Starting from</div>
                                     <div className="text-xl font-bold">Rp 1.8jt<span className="text-sm font-normal">/day</span></div>
@@ -251,8 +211,6 @@ export function HeroSection() {
                 </div>
             </div>
 
-            {/* Bottom Gradient Transition */}
-            <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-gray-50 to-transparent" />
-        </section >
+        </section>
     );
 }

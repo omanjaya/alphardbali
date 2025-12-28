@@ -1,0 +1,199 @@
+{
+    "metadata": {
+        "title": "巴厘岛阿尔法 - 巴厘岛高级阿尔法汽车租赁",
+        "description": "巴厘岛高级阿尔法汽车租赁服务，配备专业司机。机场接送、婚车、旅游观光。预订简单，价格实惠。"
+    },
+    "nav": {
+        "home": "首页",
+        "fleet": "车队",
+        "services": "服务",
+        "about": "关于我们",
+        "contact": "联系我们"
+    },
+    "hero": {
+        "subtitle": "高级服务",
+        "title1": "巴厘岛高级",
+        "title2": "阿尔法租赁",
+        "description": "享受我们最优质的阿尔法车队和专业司机的豪华旅行体验。满足您在巴厘岛的所有交通需求。",
+        "cta": {
+            "book": "立即预订",
+            "fleet": "查看车队"
+        }
+    },
+    "services": {
+        "sectionTitle": "我们的服务",
+        "sectionSubtitle": "服务",
+        "items": {
+            "dailyRental": {
+                "name": "日租服务",
+                "description": "配有司机的阿尔法日租服务"
+            },
+            "airportTransfer": {
+                "name": "机场接送",
+                "description": "高级舒适的机场接送服务"
+            },
+            "weddingCar": {
+                "name": "婚车服务",
+                "description": "为您的特别日子提供豪华婚车"
+            },
+            "tour": {
+                "name": "旅游观光",
+                "description": "以最大的舒适度探索巴厘岛"
+            },
+            "corporate": {
+                "name": "企业服务",
+                "description": "满足商务需求的交通解决方案"
+            },
+            "event": {
+                "name": "活动会议",
+                "description": "大型活动和会议的车队服务"
+            }
+        }
+    },
+    "fleet": {
+        "sectionTitle": "我们的车队",
+        "sectionSubtitle": "车队",
+        "perDay": "/天",
+        "seats": "座位",
+        "transmission": "变速箱",
+        "year": "年份",
+        "automatic": "自动",
+        "bookNow": "立即预订",
+        "vehicles": {
+            "executiveLounge": {
+                "name": "丰田阿尔法行政休息室版",
+                "type": "高级MPV",
+                "description": "行政休息室内饰的极致奢华"
+            },
+            "alphardG": {
+                "name": "丰田阿尔法G版",
+                "type": "高级MPV",
+                "description": "实惠价格的高级舒适体验"
+            }
+        }
+    },
+    "whyChooseUs": {
+        "sectionTitle": "为什么选择我们",
+        "sectionSubtitle": "优势",
+        "items": {
+            "professional": {
+                "title": "专业司机",
+                "description": "经验丰富、友善的司机，熟悉巴厘岛路线"
+            },
+            "premium": {
+                "title": "高级车队",
+                "description": "保养良好的阿尔法始终处于最佳状态"
+            },
+            "flexible": {
+                "title": "灵活安排",
+                "description": "根据您的需求安排时间，全天候服务"
+            },
+            "affordable": {
+                "title": "价格实惠",
+                "description": "具有竞争力的透明定价，无隐藏费用"
+            }
+        }
+    },
+    "testimonials": {
+        "sectionTitle": "客户评价",
+        "sectionSubtitle": "评价"
+    },
+    "faq": {
+        "sectionTitle": "常见问题",
+        "sectionSubtitle": "问答",
+        "items": {
+            "price": {
+                "question": "阿尔法每天的租金是多少？",
+                "answer": "阿尔法租金从每天180万印尼盾到250万印尼盾不等，取决于车型和套餐。价格包含专业司机和燃油费。"
+            },
+            "driver": {
+                "question": "价格包含司机吗？",
+                "answer": "是的，所有租金都包含专业、经验丰富且持有执照的司机。您无需担心在巴厘岛的导航问题。"
+            },
+            "booking": {
+                "question": "如何预订？",
+                "answer": "您可以通过我们的网站、WhatsApp或电话预订。只需提供日期、时长和接车地点。我们将在几分钟内确认可用性。"
+            },
+            "airport": {
+                "question": "提供机场接送服务吗？",
+                "answer": "当然！我们提供往返努拉莱机场的接送服务。司机将在到达区域持名牌等候。"
+            },
+            "includes": {
+                "question": "租金包含什么？",
+                "answer": "租金包含：阿尔法汽车、专业司机、燃油、矿泉水和纸巾。过路费和停车费由租客承担。"
+            }
+        }
+    },
+    "cta": {
+        "title": "准备好享受高级之旅了吗？",
+        "description": "立即联系我们，在巴厘岛享受豪华交通体验",
+        "whatsapp": "WhatsApp聊天",
+        "call": "致电我们"
+    },
+    "stats": {
+        "experience": "年经验",
+        "trips": "成功行程",
+        "satisfaction": "客户满意度",
+        "fleet": "车队规模"
+    },
+    "footer": {
+        "description": "巴厘岛高级阿尔法汽车租赁服务，配备专业司机，为您带来难忘的旅行体验。",
+        "services": "服务",
+        "company": "公司",
+        "contact": "联系方式",
+        "dailyRental": "日租服务",
+        "airportTransfer": "机场接送",
+        "weddingCar": "婚车服务",
+        "tourTravel": "旅游观光",
+        "aboutUs": "关于我们",
+        "ourFleet": "我们的车队",
+        "faq": "常见问题",
+        "privacy": "隐私政策",
+        "terms": "条款和条件",
+        "copyright": "版权所有",
+        "allRightsReserved": "保留所有权利。",
+        "developedBy": "开发者"
+    },
+    "contact": {
+        "pageTitle": "联系我们",
+        "pageSubtitle": "联系",
+        "description": "我们随时为您服务。通过WhatsApp、电话或访问我们的办公室联系我们。",
+        "form": {
+            "name": "全名",
+            "email": "电子邮件",
+            "phone": "电话号码",
+            "message": "留言",
+            "submit": "发送消息"
+        },
+        "info": {
+            "address": "地址",
+            "phone": "电话",
+            "email": "电子邮件",
+            "hours": "营业时间",
+            "hoursValue": "每天24小时"
+        }
+    },
+    "about": {
+        "pageTitle": "关于我们",
+        "pageSubtitle": "关于",
+        "description": "巴厘岛阿尔法是巴厘岛高级阿尔法汽车租赁服务提供商，拥有超过6年服务国内外游客的经验。",
+        "vision": {
+            "title": "我们的愿景",
+            "description": "成为巴厘岛领先的高级交通服务提供商，达到国际服务标准。"
+        },
+        "mission": {
+            "title": "我们的使命",
+            "description": "以最优质的车队和专业司机提供豪华、安全、舒适的旅行体验。"
+        }
+    },
+    "common": {
+        "bookNow": "立即预订",
+        "learnMore": "了解更多",
+        "viewAll": "查看全部",
+        "loading": "加载中...",
+        "error": "发生错误",
+        "success": "成功",
+        "close": "关闭",
+        "back": "返回"
+    }
+}

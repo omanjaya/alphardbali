@@ -2,14 +2,25 @@
 
 import { useRef } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Car, Plane, Heart, Compass, Briefcase, Calendar } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { FadeIn } from '@/components/animations/TextReveal';
 import { useStaggerAnimation } from '@/hooks/useGSAP';
-import { services } from '@/constants/data';
 import { cn } from '@/lib/utils';
+import { Link } from '@/i18n/navigation';
+
+const serviceIcons = [Car, Plane, Heart, Compass, Briefcase, Calendar];
+const serviceImages = [
+    '/images/vehicles/alphard-white.png',
+    '/images/services/airport-transfer.png',
+    '/images/services/wedding.png',
+    '/images/services/tour.png',
+    '/images/vehicles/alphard-black.png',
+    '/images/vehicles/interior.png',
+];
 
 export function ServicesSection() {
+    const t = useTranslations('services');
     const sectionRef = useRef<HTMLElement>(null);
     const cardsRef = useRef<HTMLDivElement>(null);
 
@@ -17,6 +28,8 @@ export function ServicesSection() {
         duration: 0.6,
         stagger: 0.08,
     });
+
+    const serviceKeys = ['dailyRental', 'airportTransfer', 'weddingCar', 'tour', 'corporate', 'event'] as const;
 
     return (
         <section ref={sectionRef} className="py-24 lg:py-32 bg-gray-950 text-white relative overflow-hidden">
@@ -36,33 +49,25 @@ export function ServicesSection() {
                         <FadeIn>
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="w-12 h-px bg-amber-500" />
-                                <span className="text-amber-400 text-xs tracking-[0.3em] uppercase">Services</span>
+                                <span className="text-amber-400 text-xs tracking-[0.3em] uppercase">{t('sectionSubtitle')}</span>
                             </div>
                         </FadeIn>
                         <FadeIn delay={0.1}>
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light mb-4">
-                                Premium
-                                <span className="font-bold block mt-1">Transportation</span>
+                                {t('sectionTitle')}
                             </h2>
-                        </FadeIn>
-                    </div>
-                    <div className="flex items-end">
-                        <FadeIn delay={0.2}>
-                            <p className="text-lg text-gray-400 max-w-md">
-                                Berbagai layanan sewa Alphard untuk memenuhi setiap kebutuhan perjalanan Anda di Bali
-                            </p>
                         </FadeIn>
                     </div>
                 </div>
 
                 {/* Service Cards Grid */}
                 <div ref={cardsRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
-                    {services.map((service, index) => {
-                        const Icon = service.icon;
+                    {serviceKeys.map((key, index) => {
+                        const Icon = serviceIcons[index];
                         return (
                             <Link
-                                key={service.id}
-                                href={`/layanan/${service.slug}`}
+                                key={key}
+                                href="/layanan"
                                 className={cn(
                                     'service-card group relative bg-gray-950 p-8 lg:p-10',
                                     'hover:bg-gray-900 transition-all duration-500',
@@ -71,9 +76,10 @@ export function ServicesSection() {
                                 {/* Background Image on Hover */}
                                 <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500">
                                     <Image
-                                        src={service.image}
-                                        alt={service.name}
+                                        src={serviceImages[index]}
+                                        alt={t(`items.${key}.name`)}
                                         fill
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                         className="object-cover"
                                     />
                                 </div>
@@ -94,10 +100,10 @@ export function ServicesSection() {
 
                                 {/* Content */}
                                 <h3 className="text-xl font-light text-white mb-3 group-hover:text-amber-400 transition-colors">
-                                    {service.name}
+                                    {t(`items.${key}.name`)}
                                 </h3>
                                 <p className="text-gray-500 text-sm mb-6 leading-relaxed">
-                                    {service.shortDescription}
+                                    {t(`items.${key}.description`)}
                                 </p>
 
                                 {/* Arrow */}

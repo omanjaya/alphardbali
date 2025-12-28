@@ -1,19 +1,19 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
-import Link from 'next/link';
 import { ArrowRight, MessageCircle, Phone } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { gsap } from '@/lib/gsap/config';
 import { FadeIn } from '@/components/animations/TextReveal';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
 
 export function CTASection() {
+    const t = useTranslations('cta');
     const sectionRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Floating animation for decorative elements
             gsap.to('.cta-float', {
                 y: -15,
                 duration: 3,
@@ -61,20 +61,13 @@ export function CTASection() {
 
                     <FadeIn delay={0.1}>
                         <h2 className="text-4xl md:text-5xl lg:text-7xl font-light text-white mb-6 leading-tight">
-                            Ready to Experience
-                            <span className="font-bold block mt-2">
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">
-                                    Luxury
-                                </span>
-                                ?
-                            </span>
+                            {t('title')}
                         </h2>
                     </FadeIn>
 
                     <FadeIn delay={0.2} className="mb-12">
                         <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-                            Hubungi kami sekarang untuk mendapatkan penawaran terbaik.
-                            Tim kami siap membantu 24/7.
+                            {t('description')}
                         </p>
                     </FadeIn>
 
@@ -86,7 +79,7 @@ export function CTASection() {
                         >
                             <a href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Halo, saya ingin booking Alphard`}>
                                 <MessageCircle className="mr-3 w-5 h-5" />
-                                WhatsApp Now
+                                {t('whatsapp')}
                                 <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </a>
                         </Button>
@@ -99,7 +92,7 @@ export function CTASection() {
                         >
                             <a href={`tel:${siteConfig.contact.phone}`}>
                                 <Phone className="mr-3 w-4 h-4" />
-                                Call Us
+                                {t('call')}
                             </a>
                         </Button>
                     </FadeIn>

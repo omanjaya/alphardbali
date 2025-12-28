@@ -1,7 +1,8 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { FadeIn } from '@/components/animations/TextReveal';
 import { gsap } from '@/lib/gsap/config';
 import { Button } from '@/components/ui/button';
@@ -9,6 +10,7 @@ import { testimonials } from '@/constants/data';
 import { cn } from '@/lib/utils';
 
 export function TestimonialsSection() {
+    const t = useTranslations('testimonials');
     const [activeIndex, setActiveIndex] = useState(0);
     const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -56,14 +58,13 @@ export function TestimonialsSection() {
                     <FadeIn>
                         <div className="flex items-center justify-center gap-3 mb-4">
                             <div className="w-12 h-px bg-amber-500" />
-                            <span className="text-amber-400 text-xs tracking-[0.3em] uppercase">Testimonials</span>
+                            <span className="text-amber-400 text-xs tracking-[0.3em] uppercase">{t('sectionSubtitle')}</span>
                             <div className="w-12 h-px bg-amber-500" />
                         </div>
                     </FadeIn>
                     <FadeIn delay={0.1}>
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-light mb-4">
-                            What Our
-                            <span className="font-bold block mt-1">Clients Say</span>
+                            {t('sectionTitle')}
                         </h2>
                     </FadeIn>
                 </div>

@@ -1,0 +1,199 @@
+{
+    "metadata": {
+        "title": "Alphard Bali - Premium Alphard Autoverhuur in Bali",
+        "description": "Premium Alphard autoverhuur in Bali met professionele chauffeurs. Luchthaventransfer, trouwauto, tours en reizen. Eenvoudig boeken, betaalbare prijzen."
+    },
+    "nav": {
+        "home": "Home",
+        "fleet": "Vloot",
+        "services": "Diensten",
+        "about": "Over ons",
+        "contact": "Contact"
+    },
+    "hero": {
+        "subtitle": "PREMIUM SERVICE",
+        "title1": "Premium Alphard",
+        "title2": "Verhuur in Bali",
+        "description": "Ervaar luxe reizen met onze beste Alphard-vloot en professionele chauffeurs. Premium transportoplossing voor al uw behoeften in Bali.",
+        "cta": {
+            "book": "Nu boeken",
+            "fleet": "Bekijk vloot"
+        }
+    },
+    "services": {
+        "sectionTitle": "Onze diensten",
+        "sectionSubtitle": "DIENSTEN",
+        "items": {
+            "dailyRental": {
+                "name": "Dagverhuur",
+                "description": "Alphard-verhuur met chauffeur voor uw dagelijkse behoeften"
+            },
+            "airportTransfer": {
+                "name": "Luchthaventransfer",
+                "description": "Ophalen en afzetten op de luchthaven met premium comfort"
+            },
+            "weddingCar": {
+                "name": "Trouwauto",
+                "description": "Luxe trouwauto voor uw speciale dag"
+            },
+            "tour": {
+                "name": "Tours en reizen",
+                "description": "Verken Bali met maximaal comfort"
+            },
+            "corporate": {
+                "name": "Zakelijk",
+                "description": "Transportoplossingen voor zakelijke behoeften"
+            },
+            "event": {
+                "name": "Evenementen en MICE",
+                "description": "Vloot voor grote evenementen en vergaderingen"
+            }
+        }
+    },
+    "fleet": {
+        "sectionTitle": "Onze vloot",
+        "sectionSubtitle": "VLOOT",
+        "perDay": "/dag",
+        "seats": "Zitplaatsen",
+        "transmission": "Transmissie",
+        "year": "Jaar",
+        "automatic": "Automaat",
+        "bookNow": "Nu boeken",
+        "vehicles": {
+            "executiveLounge": {
+                "name": "Toyota Alphard Executive Lounge",
+                "type": "Premium MPV",
+                "description": "Ultieme luxe met Executive Lounge interieur"
+            },
+            "alphardG": {
+                "name": "Toyota Alphard G",
+                "type": "Premium MPV",
+                "description": "Premium comfort tegen een betaalbare prijs"
+            }
+        }
+    },
+    "whyChooseUs": {
+        "sectionTitle": "Waarom voor ons kiezen",
+        "sectionSubtitle": "VOORDELEN",
+        "items": {
+            "professional": {
+                "title": "Professionele chauffeurs",
+                "description": "Ervaren, vriendelijke chauffeurs die de routes in Bali kennen"
+            },
+            "premium": {
+                "title": "Premium vloot",
+                "description": "Goed onderhouden Alphard altijd in topconditie"
+            },
+            "flexible": {
+                "title": "Flexibel",
+                "description": "Schema volgens uw behoeften, 24/7 beschikbaar"
+            },
+            "affordable": {
+                "title": "Betaalbare prijzen",
+                "description": "Concurrerende, transparante prijzen zonder verborgen kosten"
+            }
+        }
+    },
+    "testimonials": {
+        "sectionTitle": "Wat onze klanten zeggen",
+        "sectionSubtitle": "RECENSIES"
+    },
+    "faq": {
+        "sectionTitle": "Veelgestelde vragen",
+        "sectionSubtitle": "FAQ",
+        "items": {
+            "price": {
+                "question": "Hoeveel kost de Alphard-verhuur per dag?",
+                "answer": "De Alphard-verhuurprijzen beginnen vanaf 1.800.000 tot 2.500.000 IDR per dag, afhankelijk van het type en gekozen pakket. De prijs is inclusief professionele chauffeur en brandstof."
+            },
+            "driver": {
+                "question": "Is een chauffeur inbegrepen in de prijs?",
+                "answer": "Ja, alle huurprijzen zijn inclusief een professionele, ervaren en gelicentieerde chauffeur. U hoeft zich geen zorgen te maken over navigeren in Bali."
+            },
+            "booking": {
+                "question": "Hoe kan ik boeken?",
+                "answer": "U kunt boeken via onze website, WhatsApp of telefoon. Geef gewoon de datum, duur en ophaallocatie door. Wij bevestigen de beschikbaarheid binnen enkele minuten."
+            },
+            "airport": {
+                "question": "Bieden jullie luchthaventransfers aan?",
+                "answer": "Absoluut! Wij bieden transferservice van en naar Ngurah Rai Airport. De chauffeur wacht in de aankomsthal met een naambordje."
+            },
+            "includes": {
+                "question": "Wat is inbegrepen in de huurprijs?",
+                "answer": "De huurprijs omvat: Alphard-voertuig, professionele chauffeur, brandstof, mineraalwater en tissues. Tol- en parkeerkosten zijn voor rekening van de huurder."
+            }
+        }
+    },
+    "cta": {
+        "title": "Klaar voor een premium reis?",
+        "description": "Neem nu contact met ons op voor een luxe transportervaring in Bali",
+        "whatsapp": "WhatsApp Chat",
+        "call": "Bel ons"
+    },
+    "stats": {
+        "experience": "Jaar ervaring",
+        "trips": "Succesvolle ritten",
+        "satisfaction": "Klanttevredenheid",
+        "fleet": "Voertuigen"
+    },
+    "footer": {
+        "description": "Premium Alphard autoverhuur in Bali met professionele chauffeurs voor een onvergetelijke reiservaring.",
+        "services": "Diensten",
+        "company": "Bedrijf",
+        "contact": "Contact",
+        "dailyRental": "Dagverhuur",
+        "airportTransfer": "Luchthaventransfer",
+        "weddingCar": "Trouwauto",
+        "tourTravel": "Tours en reizen",
+        "aboutUs": "Over ons",
+        "ourFleet": "Onze vloot",
+        "faq": "FAQ",
+        "privacy": "Privacy",
+        "terms": "Algemene voorwaarden",
+        "copyright": "Auteursrecht",
+        "allRightsReserved": "Alle rechten voorbehouden.",
+        "developedBy": "Ontwikkeld door"
+    },
+    "contact": {
+        "pageTitle": "Neem contact op",
+        "pageSubtitle": "CONTACT",
+        "description": "Wij staan klaar om u te helpen. Neem contact met ons op via WhatsApp, telefoon of bezoek ons kantoor.",
+        "form": {
+            "name": "Volledige naam",
+            "email": "E-mail",
+            "phone": "Telefoonnummer",
+            "message": "Bericht",
+            "submit": "Bericht versturen"
+        },
+        "info": {
+            "address": "Adres",
+            "phone": "Telefoon",
+            "email": "E-mail",
+            "hours": "Openingstijden",
+            "hoursValue": "Elke dag, 24 uur"
+        }
+    },
+    "about": {
+        "pageTitle": "Over ons",
+        "pageSubtitle": "OVER ONS",
+        "description": "Alphard Bali is een premium aanbieder van Alphard-autoverhuur in Bali met meer dan 6 jaar ervaring in het bedienen van binnenlandse en internationale toeristen.",
+        "vision": {
+            "title": "Onze visie",
+            "description": "De toonaangevende premium transportdienstverlener in Bali zijn met internationale servicestandaarden."
+        },
+        "mission": {
+            "title": "Onze missie",
+            "description": "Luxe, veilige en comfortabele reiservaringen bieden met de beste vloot en professionele chauffeurs."
+        }
+    },
+    "common": {
+        "bookNow": "Nu boeken",
+        "learnMore": "Meer informatie",
+        "viewAll": "Alles bekijken",
+        "loading": "Laden...",
+        "error": "Er is een fout opgetreden",
+        "success": "Succes",
+        "close": "Sluiten",
+        "back": "Terug"
+    }
+}

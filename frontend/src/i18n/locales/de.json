@@ -1,0 +1,199 @@
+{
+    "metadata": {
+        "title": "Alphard Bali - Premium Alphard Autovermietung in Bali",
+        "description": "Premium Alphard Autovermietung in Bali mit professionellen Fahrern. Flughafentransfer, Hochzeitsauto, Touren und Reisen. Einfache Buchung, erschwingliche Preise."
+    },
+    "nav": {
+        "home": "Startseite",
+        "fleet": "Fahrzeuge",
+        "services": "Dienstleistungen",
+        "about": "Über uns",
+        "contact": "Kontakt"
+    },
+    "hero": {
+        "subtitle": "PREMIUM SERVICE",
+        "title1": "Premium Alphard",
+        "title2": "Vermietung in Bali",
+        "description": "Erleben Sie luxuriöses Reisen mit unserer erstklassigen Alphard-Flotte und professionellen Fahrern. Premium-Transportlösung für alle Ihre Bedürfnisse in Bali.",
+        "cta": {
+            "book": "Jetzt buchen",
+            "fleet": "Flotte ansehen"
+        }
+    },
+    "services": {
+        "sectionTitle": "Unsere Dienstleistungen",
+        "sectionSubtitle": "DIENSTLEISTUNGEN",
+        "items": {
+            "dailyRental": {
+                "name": "Tagesmiete",
+                "description": "Alphard-Miete mit Fahrer für Ihre täglichen Bedürfnisse"
+            },
+            "airportTransfer": {
+                "name": "Flughafentransfer",
+                "description": "Flughafen-Abholung und -Rückgabe mit Premium-Komfort"
+            },
+            "weddingCar": {
+                "name": "Hochzeitsauto",
+                "description": "Luxuriöses Hochzeitsauto für Ihren besonderen Tag"
+            },
+            "tour": {
+                "name": "Touren und Reisen",
+                "description": "Erkunden Sie Bali mit maximalem Komfort"
+            },
+            "corporate": {
+                "name": "Geschäftskunden",
+                "description": "Transportlösungen für Geschäftsbedürfnisse"
+            },
+            "event": {
+                "name": "Events und MICE",
+                "description": "Flotte für große Events und Meetings"
+            }
+        }
+    },
+    "fleet": {
+        "sectionTitle": "Unsere Flotte",
+        "sectionSubtitle": "FAHRZEUGE",
+        "perDay": "/Tag",
+        "seats": "Sitze",
+        "transmission": "Getriebe",
+        "year": "Jahr",
+        "automatic": "Automatik",
+        "bookNow": "Jetzt buchen",
+        "vehicles": {
+            "executiveLounge": {
+                "name": "Toyota Alphard Executive Lounge",
+                "type": "Premium MPV",
+                "description": "Ultimativer Luxus mit Executive Lounge Interieur"
+            },
+            "alphardG": {
+                "name": "Toyota Alphard G",
+                "type": "Premium MPV",
+                "description": "Premium-Komfort zu erschwinglichem Preis"
+            }
+        }
+    },
+    "whyChooseUs": {
+        "sectionTitle": "Warum uns wählen",
+        "sectionSubtitle": "VORTEILE",
+        "items": {
+            "professional": {
+                "title": "Professionelle Fahrer",
+                "description": "Erfahrene, freundliche Fahrer, die die Routen in Bali kennen"
+            },
+            "premium": {
+                "title": "Premium-Flotte",
+                "description": "Gut gewartete Alphard immer in bestem Zustand"
+            },
+            "flexible": {
+                "title": "Flexibel",
+                "description": "Zeitplan nach Ihren Bedürfnissen, 24/7 verfügbar"
+            },
+            "affordable": {
+                "title": "Erschwingliche Preise",
+                "description": "Wettbewerbsfähige, transparente Preise ohne versteckte Gebühren"
+            }
+        }
+    },
+    "testimonials": {
+        "sectionTitle": "Was unsere Kunden sagen",
+        "sectionSubtitle": "BEWERTUNGEN"
+    },
+    "faq": {
+        "sectionTitle": "Häufig gestellte Fragen",
+        "sectionSubtitle": "FAQ",
+        "items": {
+            "price": {
+                "question": "Wie viel kostet die Alphard-Miete pro Tag?",
+                "answer": "Die Alphard-Mietpreise beginnen bei 1.800.000 bis 2.500.000 IDR pro Tag, je nach Typ und gewähltem Paket. Der Preis beinhaltet einen professionellen Fahrer und Kraftstoff."
+            },
+            "driver": {
+                "question": "Ist ein Fahrer im Preis inbegriffen?",
+                "answer": "Ja, alle Mietpreise beinhalten einen professionellen, erfahrenen und lizenzierten Fahrer. Sie müssen sich keine Sorgen um die Navigation in Bali machen."
+            },
+            "booking": {
+                "question": "Wie kann ich buchen?",
+                "answer": "Sie können über unsere Website, WhatsApp oder telefonisch buchen. Geben Sie einfach Datum, Dauer und Abholort an. Wir bestätigen die Verfügbarkeit innerhalb von Minuten."
+            },
+            "airport": {
+                "question": "Bieten Sie Flughafentransfers an?",
+                "answer": "Absolut! Wir bieten Transferservice zum und vom Flughafen Ngurah Rai. Der Fahrer wartet mit einem Namensschild im Ankunftsbereich."
+            },
+            "includes": {
+                "question": "Was ist im Mietpreis enthalten?",
+                "answer": "Der Mietpreis beinhaltet: Alphard-Fahrzeug, professioneller Fahrer, Kraftstoff, Mineralwasser und Taschentücher. Maut- und Parkgebühren trägt der Mieter."
+            }
+        }
+    },
+    "cta": {
+        "title": "Bereit für eine Premium-Reise?",
+        "description": "Kontaktieren Sie uns jetzt für ein luxuriöses Transporterlebnis in Bali",
+        "whatsapp": "WhatsApp Chat",
+        "call": "Rufen Sie uns an"
+    },
+    "stats": {
+        "experience": "Jahre Erfahrung",
+        "trips": "Erfolgreiche Fahrten",
+        "satisfaction": "Kundenzufriedenheit",
+        "fleet": "Fahrzeuge"
+    },
+    "footer": {
+        "description": "Premium Alphard Autovermietung in Bali mit professionellen Fahrern für ein unvergessliches Reiseerlebnis.",
+        "services": "Dienstleistungen",
+        "company": "Unternehmen",
+        "contact": "Kontakt",
+        "dailyRental": "Tagesmiete",
+        "airportTransfer": "Flughafentransfer",
+        "weddingCar": "Hochzeitsauto",
+        "tourTravel": "Touren und Reisen",
+        "aboutUs": "Über uns",
+        "ourFleet": "Unsere Flotte",
+        "faq": "FAQ",
+        "privacy": "Datenschutz",
+        "terms": "AGB",
+        "copyright": "Urheberrecht",
+        "allRightsReserved": "Alle Rechte vorbehalten.",
+        "developedBy": "Entwickelt von"
+    },
+    "contact": {
+        "pageTitle": "Kontaktieren Sie uns",
+        "pageSubtitle": "KONTAKT",
+        "description": "Wir sind bereit, Ihnen zu helfen. Kontaktieren Sie uns über WhatsApp, Telefon oder besuchen Sie unser Büro.",
+        "form": {
+            "name": "Vollständiger Name",
+            "email": "E-Mail",
+            "phone": "Telefonnummer",
+            "message": "Nachricht",
+            "submit": "Nachricht senden"
+        },
+        "info": {
+            "address": "Adresse",
+            "phone": "Telefon",
+            "email": "E-Mail",
+            "hours": "Öffnungszeiten",
+            "hoursValue": "Täglich, 24 Stunden"
+        }
+    },
+    "about": {
+        "pageTitle": "Über uns",
+        "pageSubtitle": "ÜBER UNS",
+        "description": "Alphard Bali ist ein Premium-Anbieter für Alphard-Autovermietung in Bali mit über 6 Jahren Erfahrung im Service für in- und ausländische Touristen.",
+        "vision": {
+            "title": "Unsere Vision",
+            "description": "Der führende Premium-Transportdienstleister in Bali mit internationalen Servicestandards zu sein."
+        },
+        "mission": {
+            "title": "Unsere Mission",
+            "description": "Luxuriöse, sichere und komfortable Reiseerlebnisse mit der besten Flotte und professionellen Fahrern zu bieten."
+        }
+    },
+    "common": {
+        "bookNow": "Jetzt buchen",
+        "learnMore": "Mehr erfahren",
+        "viewAll": "Alle ansehen",
+        "loading": "Laden...",
+        "error": "Ein Fehler ist aufgetreten",
+        "success": "Erfolg",
+        "close": "Schließen",
+        "back": "Zurück"
+    }
+}

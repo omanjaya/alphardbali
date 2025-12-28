@@ -2,15 +2,18 @@
 
 import { useRef } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { ArrowRight, Users, Cog, Calendar } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { FadeIn } from '@/components/animations/TextReveal';
 import { useStaggerAnimation } from '@/hooks/useGSAP';
 import { Button } from '@/components/ui/button';
 import { vehicles } from '@/constants/data';
 import { cn } from '@/lib/utils';
+import { Link } from '@/i18n/navigation';
 
 export function FleetShowcase() {
+    const t = useTranslations('fleet');
+    const tCommon = useTranslations('common');
     const sectionRef = useRef<HTMLElement>(null);
     const cardsRef = useRef<HTMLDivElement>(null);
 
@@ -33,19 +36,13 @@ export function FleetShowcase() {
                     <FadeIn>
                         <div className="flex items-center gap-3 mb-4">
                             <div className="w-12 h-px bg-amber-500" />
-                            <span className="text-amber-600 text-xs tracking-[0.3em] uppercase">Our Fleet</span>
+                            <span className="text-amber-600 text-xs tracking-[0.3em] uppercase">{t('sectionSubtitle')}</span>
                         </div>
                     </FadeIn>
                     <FadeIn delay={0.1}>
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-4">
-                            Premium
-                            <span className="font-bold block mt-1">Alphard Collection</span>
+                            {t('sectionTitle')}
                         </h2>
-                    </FadeIn>
-                    <FadeIn delay={0.2}>
-                        <p className="text-lg text-gray-500 max-w-xl">
-                            Armada terbaik dengan kondisi prima dan interior mewah untuk kenyamanan perjalanan Anda
-                        </p>
                     </FadeIn>
                 </div>
 
@@ -66,6 +63,7 @@ export function FleetShowcase() {
                                     src={vehicle.image}
                                     alt={vehicle.name}
                                     fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -74,7 +72,7 @@ export function FleetShowcase() {
                                 <div className="absolute top-6 right-6">
                                     <div className="bg-black text-white px-4 py-2">
                                         <span className="text-amber-400 font-bold">Rp {(vehicle.pricePerDay / 1000000).toFixed(1)}jt</span>
-                                        <span className="text-gray-400 text-sm">/hari</span>
+                                        <span className="text-gray-400 text-sm">{t('perDay')}</span>
                                     </div>
                                 </div>
 
@@ -97,11 +95,11 @@ export function FleetShowcase() {
                                 <div className="flex items-center gap-6 mb-6 text-sm text-gray-400">
                                     <div className="flex items-center gap-2">
                                         <Users className="w-4 h-4 text-amber-500" />
-                                        <span>{vehicle.specs.seats} Seats</span>
+                                        <span>{vehicle.specs.seats} {t('seats')}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <Cog className="w-4 h-4 text-amber-500" />
-                                        <span>{vehicle.specs.transmission}</span>
+                                        <span>{t('automatic')}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <Calendar className="w-4 h-4 text-amber-500" />
@@ -114,8 +112,8 @@ export function FleetShowcase() {
                                     className="w-full bg-black hover:bg-amber-500 text-white rounded-none group/btn py-6"
                                     asChild
                                 >
-                                    <Link href={`/armada/${vehicle.slug}`}>
-                                        <span className="text-xs uppercase tracking-[0.2em]">View Details</span>
+                                    <Link href="/armada">
+                                        <span className="text-xs uppercase tracking-[0.2em]">{t('bookNow')}</span>
                                         <ArrowRight className="ml-3 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                                     </Link>
                                 </Button>
@@ -135,7 +133,7 @@ export function FleetShowcase() {
                         asChild
                     >
                         <Link href="/armada">
-                            View All Collection
+                            {tCommon('viewAll')}
                             <ArrowRight className="ml-3 w-4 h-4" />
                         </Link>
                     </Button>

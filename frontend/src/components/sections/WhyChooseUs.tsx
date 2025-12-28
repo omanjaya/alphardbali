@@ -2,33 +2,12 @@
 
 import { useRef } from 'react';
 import { Shield, Clock, Award, ThumbsUp } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { FadeIn } from '@/components/animations/TextReveal';
 import { useCounter, useStaggerAnimation } from '@/hooks/useGSAP';
-import { stats } from '@/constants/data';
 import { cn } from '@/lib/utils';
 
-const features = [
-    {
-        icon: Shield,
-        title: 'Fully Insured',
-        description: 'Complete insurance coverage for your peace of mind',
-    },
-    {
-        icon: Clock,
-        title: '24/7 Support',
-        description: 'Round-the-clock assistance whenever you need',
-    },
-    {
-        icon: Award,
-        title: 'Professional',
-        description: 'Licensed and experienced chauffeurs',
-    },
-    {
-        icon: ThumbsUp,
-        title: 'Transparent',
-        description: 'No hidden fees, all-inclusive pricing',
-    },
-];
+const featureIcons = [Shield, Clock, Award, ThumbsUp];
 
 function StatCounter({ value, suffix, label }: { value: number; suffix: string; label: string }) {
     const counterRef = useRef<HTMLSpanElement>(null);
@@ -46,6 +25,8 @@ function StatCounter({ value, suffix, label }: { value: number; suffix: string; 
 }
 
 export function WhyChooseUs() {
+    const t = useTranslations('whyChooseUs');
+    const tStats = useTranslations('stats');
     const sectionRef = useRef<HTMLElement>(null);
     const featuresRef = useRef<HTMLDivElement>(null);
 
@@ -53,6 +34,15 @@ export function WhyChooseUs() {
         duration: 0.6,
         stagger: 0.1,
     });
+
+    const featureKeys = ['professional', 'premium', 'flexible', 'affordable'] as const;
+
+    const stats = [
+        { value: 6, suffix: '+', label: tStats('experience') },
+        { value: 5000, suffix: '+', label: tStats('trips') },
+        { value: 98, suffix: '%', label: tStats('satisfaction') },
+        { value: 10, suffix: '+', label: tStats('fleet') },
+    ];
 
     return (
         <section ref={sectionRef} className="py-24 lg:py-32 bg-white relative overflow-hidden">
@@ -80,34 +70,26 @@ export function WhyChooseUs() {
                         <FadeIn>
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="w-12 h-px bg-amber-500" />
-                                <span className="text-amber-600 text-xs tracking-[0.3em] uppercase">Why Us</span>
+                                <span className="text-amber-600 text-xs tracking-[0.3em] uppercase">{t('sectionSubtitle')}</span>
                             </div>
                         </FadeIn>
                         <FadeIn delay={0.1}>
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-4">
-                                Excellence in
-                                <span className="font-bold block mt-1">Every Detail</span>
+                                {t('sectionTitle')}
                             </h2>
-                        </FadeIn>
-                    </div>
-                    <div className="flex items-end">
-                        <FadeIn delay={0.2}>
-                            <p className="text-lg text-gray-500 max-w-md">
-                                Kami berkomitmen memberikan layanan terbaik dengan standar kualitas premium untuk setiap pelanggan
-                            </p>
                         </FadeIn>
                     </div>
                 </div>
 
                 {/* Features Grid */}
                 <div ref={featuresRef} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100">
-                    {features.map((feature, index) => {
-                        const Icon = feature.icon;
+                    {featureKeys.map((key, index) => {
+                        const Icon = featureIcons[index];
                         return (
                             <div
-                                key={index}
+                                key={key}
                                 className={cn(
-                                    'feature-card group p-8 lg:p-10 bg-white',
+                                    'feature-card group p-8 lg:p-10 bg-white relative',
                                     'hover:bg-gray-50 transition-all duration-300'
                                 )}
                             >
@@ -119,10 +101,10 @@ export function WhyChooseUs() {
                                     <Icon className="w-6 h-6 text-amber-500" />
                                 </div>
                                 <h3 className="text-lg font-light text-gray-900 mb-3">
-                                    {feature.title}
+                                    {t(`items.${key}.title`)}
                                 </h3>
                                 <p className="text-sm text-gray-500 leading-relaxed">
-                                    {feature.description}
+                                    {t(`items.${key}.description`)}
                                 </p>
 
                                 {/* Number */}

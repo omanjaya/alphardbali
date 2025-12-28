@@ -103,6 +103,7 @@ export function FleetPage() {
                         src="/images/vehicles/interior.png"
                         alt="Alphard Interior"
                         fill
+                        sizes="100vw"
                         className="object-cover opacity-30"
                         priority
                     />
@@ -157,6 +158,7 @@ export function FleetPage() {
                                             src={vehicle.images[0]}
                                             alt={vehicle.name}
                                             fill
+                                            sizes="(max-width: 1024px) 100vw, 50vw"
                                             className="object-cover hover:scale-105 transition-transform duration-700"
                                         />
                                     </div>

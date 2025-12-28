@@ -88,46 +88,51 @@ export function TentangPage() {
             {/* Hero Section */}
             <section
                 ref={heroRef}
-                className="relative min-h-screen flex items-center overflow-hidden bg-white pt-24"
+                className="relative min-h-[70vh] flex items-center bg-black pt-32 pb-20"
             >
-                <div className="absolute inset-0 opacity-[0.02]" style={{
-                    backgroundImage: `radial-gradient(circle at 1px 1px, black 1px, transparent 0)`,
-                    backgroundSize: '40px 40px',
+                {/* Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-600/10 via-black to-black" />
+
+                {/* Grid Pattern */}
+                <div className="absolute inset-0 opacity-[0.03]" style={{
+                    backgroundImage: `linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)`,
+                    backgroundSize: '60px 60px',
                 }} />
 
                 {/* Decorative */}
-                <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[150px]" />
+                <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[150px]" />
 
                 <div className="container mx-auto px-4 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         {/* Content */}
-                        <div className="tentang-hero-content">
+                        <div className="tentang-hero-content relative z-10">
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-12 h-px bg-amber-500" />
-                                <span className="text-amber-600 text-xs tracking-[0.3em] uppercase">About Us</span>
+                                <span className="text-amber-400 text-xs tracking-[0.3em] uppercase">About Us</span>
                             </div>
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 leading-tight">
                                 Your Trusted
                                 <span className="font-bold block mt-2">Travel Partner</span>
                             </h1>
-                            <p className="text-lg text-gray-500 mb-8 leading-relaxed">
+                            <p className="text-lg text-gray-400 mb-8 leading-relaxed">
                                 Sejak {siteConfig.business.foundedYear}, Alphard Bali telah menjadi pilihan utama untuk layanan
                                 sewa mobil premium di Bali. Dengan armada Toyota Alphard terbaik dan supir profesional
                                 berpengalaman, kami berkomitmen memberikan pengalaman perjalanan yang tak terlupakan.
                             </p>
-                            <p className="text-lg text-gray-500 leading-relaxed">
+                            <p className="text-lg text-gray-400 leading-relaxed">
                                 Kepercayaan ribuan pelanggan adalah bukti dedikasi kami dalam menyediakan layanan
                                 berkualitas tinggi dengan harga transparan dan tanpa biaya tersembunyi.
                             </p>
                         </div>
 
                         {/* Image */}
-                        <div className="tentang-image relative">
-                            <div className="relative aspect-square overflow-hidden">
+                        <div className="tentang-image relative z-10">
+                            <div className="relative aspect-square overflow-hidden bg-gray-900">
                                 <Image
                                     src="/images/about-driver.png"
                                     alt="Professional Driver Alphard Bali"
                                     fill
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
                                     className="object-cover"
                                 />
                             </div>
@@ -136,9 +141,9 @@ export function TentangPage() {
                             <div className="absolute -bottom-4 -right-4 w-20 h-20 border-r-2 border-b-2 border-amber-500" />
 
                             {/* Floating Badge */}
-                            <div className="absolute -bottom-8 -left-8 bg-black text-white p-6">
-                                <div className="text-4xl font-bold text-amber-400">6<span className="text-white">+</span></div>
-                                <div className="text-xs uppercase tracking-[0.2em] text-gray-400">Years Experience</div>
+                            <div className="absolute -bottom-6 -left-6 bg-amber-500 text-black p-6 z-20 shadow-xl">
+                                <div className="text-4xl font-bold">6<span className="text-black/70">+</span></div>
+                                <div className="text-xs uppercase tracking-[0.2em] text-black/70">Years Experience</div>
                             </div>
                         </div>
                     </div>
@@ -265,11 +270,12 @@ export function TentangPage() {
 
                         <FadeIn direction="right" delay={0.2}>
                             <div className="relative">
-                                <div className="aspect-[4/3] overflow-hidden">
+                                <div className="aspect-[4/3] overflow-hidden relative">
                                     <Image
                                         src="/images/vehicles/interior.png"
                                         alt="Alphard Interior"
                                         fill
+                                        sizes="(max-width: 1024px) 100vw, 50vw"
                                         className="object-cover"
                                     />
                                 </div>
