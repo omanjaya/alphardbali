@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import { siteConfig } from '@/config/site';
 import { useStaggerAnimation } from '@/hooks/useGSAP';
 import { Link } from '@/i18n/navigation';
+import type { Pathnames } from '@/i18n/routing';
 
 export function Footer() {
     const t = useTranslations('footer');
@@ -16,17 +17,17 @@ export function Footer() {
         y: 0,
     });
 
-    const servicesLinks = [
+    const servicesLinks: { href: Pathnames; label: string }[] = [
         { href: '/layanan', label: t('dailyRental') },
         { href: '/layanan', label: t('airportTransfer') },
         { href: '/layanan', label: t('weddingCar') },
         { href: '/layanan', label: t('tourTravel') },
     ];
 
-    const companyLinks = [
+    const companyLinks: { href: Pathnames; label: string }[] = [
         { href: '/tentang', label: t('aboutUs') },
         { href: '/armada', label: t('ourFleet') },
-        { href: '/#faq', label: t('faq') },
+        { href: '/', label: t('faq') },
     ];
 
     return (
