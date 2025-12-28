@@ -23,57 +23,78 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const messages = await getMessages();
   const t = messages as Record<string, Record<string, string>>;
 
+  const title = t?.metadata?.title || `${siteConfig.name} - ${siteConfig.tagline}`;
+  const description = t?.metadata?.description || siteConfig.description;
+
   return {
     metadataBase: new URL(siteConfig.url),
     title: {
-      default: t?.metadata?.title || `${siteConfig.name} - Sewa Mobil Alphard Premium di Bali`,
+      default: title,
       template: `%s | ${siteConfig.name}`,
     },
-    description: t?.metadata?.description || siteConfig.description,
-    keywords: siteConfig.keywords,
+    description,
+    keywords: siteConfig.keywords.join(', '),
     authors: [{ name: siteConfig.name }],
     creator: siteConfig.name,
     publisher: siteConfig.name,
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
     openGraph: {
       type: "website",
-      locale: locale,
+      locale: locale === 'id' ? 'id_ID' : locale === 'en' ? 'en_US' : locale,
       url: siteConfig.url,
-      title: siteConfig.name,
-      description: t?.metadata?.description || siteConfig.description,
+      title,
+      description,
       siteName: siteConfig.name,
       images: [
         {
-          url: "/images/og-image.jpg",
+          url: `${siteConfig.url}/images/og-image.jpg`,
           width: 1200,
           height: 630,
-          alt: siteConfig.name,
+          alt: `${siteConfig.name} - Sewa Alphard Terbaik di Bali`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: siteConfig.name,
-      description: t?.metadata?.description || siteConfig.description,
-      images: ["/images/og-image.jpg"],
+      title,
+      description,
+      images: [`${siteConfig.url}/images/og-image.jpg`],
+      creator: "@alphardbali",
     },
     robots: {
       index: true,
       follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
     alternates: {
-      canonical: "/",
+      canonical: locale === 'id' ? siteConfig.url : `${siteConfig.url}/${locale}`,
       languages: {
-        'id': '/id',
-        'en': '/en',
-        'zh': '/zh',
-        'ja': '/ja',
-        'ko': '/ko',
-        'ru': '/ru',
-        'fr': '/fr',
-        'de': '/de',
-        'nl': '/nl',
+        'x-default': siteConfig.url,
+        'id': siteConfig.url,
+        'en': `${siteConfig.url}/en`,
+        'zh': `${siteConfig.url}/zh`,
+        'ja': `${siteConfig.url}/ja`,
+        'ko': `${siteConfig.url}/ko`,
+        'ru': `${siteConfig.url}/ru`,
+        'fr': `${siteConfig.url}/fr`,
+        'de': `${siteConfig.url}/de`,
+        'nl': `${siteConfig.url}/nl`,
       }
     },
+    verification: {
+      google: 'your-google-verification-code',
+    },
+    category: 'transportation',
   };
 }
 

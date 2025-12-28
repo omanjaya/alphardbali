@@ -1,0 +1,51 @@
+# Robots.txt for Alphard Bali - Sewa Alphard Terbaik di Bali
+# https://alphardbali.vercel.app
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://alphardbali.vercel.app/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Block internal/admin pages
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# AI crawlers - allow for AI search results
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
