@@ -55,4 +55,5 @@ EXPOSE 8080
 # Start command - cache at runtime when env vars are available
 CMD php artisan config:clear && \
     php artisan migrate --force && \
+    php artisan db:seed --force || true && \
     php artisan serve --host=0.0.0.0 --port=${PORT:-8080}
