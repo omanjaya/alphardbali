@@ -20,29 +20,41 @@ export function HeroSection() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.fromTo(
-                imageRef.current,
-                { scale: 1.2, opacity: 0 },
-                { scale: 1, opacity: 1, duration: 2, ease: 'power2.out' }
-            );
+            // Set initial states immediately to prevent flash
+            gsap.set(imageRef.current, { scale: 1.1, opacity: 0 });
+            gsap.set('.hero-title-line', { y: 60, opacity: 0 });
 
-            gsap.fromTo(
-                '.hero-title-line',
-                { y: 100, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1.2, stagger: 0.15, ease: 'power4.out', delay: 0.5 }
-            );
-
+            // Image reveal - reduced scale for smoother animation
             gsap.to(imageRef.current, {
-                yPercent: 15,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: heroRef.current,
-                    start: 'top top',
-                    end: 'bottom top',
-                    scrub: 1.5,
-                },
+                scale: 1,
+                opacity: 1,
+                duration: 1.5,
+                ease: 'power2.out',
             });
 
+            // Title reveal - reduced movement for less jank
+            gsap.to('.hero-title-line', {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                stagger: 0.12,
+                ease: 'power3.out',
+                delay: 0.3,
+            });
+
+            // Parallax effect - only if not reduced motion preference
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                gsap.to(imageRef.current, {
+                    yPercent: 10,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: heroRef.current,
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: true,
+                    },
+                });
+            }
         });
 
         return () => ctx.revert();
@@ -54,7 +66,7 @@ export function HeroSection() {
             className="relative min-h-screen flex items-center overflow-hidden bg-black"
         >
             {/* Background Image */}
-            <div ref={imageRef} className="absolute inset-0">
+            <div ref={imageRef} className="absolute inset-0 will-change-transform" style={{ opacity: 0 }}>
                 <Image
                     src="/images/hero/hero.png"
                     alt="Toyota Alphard luxury car rental in Bali"
@@ -70,9 +82,9 @@ export function HeroSection() {
                 }} />
             </div>
 
-            {/* Decorative Elements */}
-            <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[150px]" />
-            <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-amber-600/5 rounded-full blur-[120px]" />
+            {/* Decorative Elements - reduced blur for better performance */}
+            <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-amber-500/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-amber-600/5 rounded-full blur-3xl" />
             <div className="absolute left-8 top-1/4 bottom-1/4 w-px bg-gradient-to-b from-transparent via-amber-500/30 to-transparent hidden lg:block" />
 
             {/* Content */}
@@ -91,10 +103,10 @@ export function HeroSection() {
 
                         <div className="overflow-hidden mb-8">
                             <h1 ref={titleRef} className="text-white">
-                                <span className="hero-title-line block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extralight tracking-tight">
+                                <span className="hero-title-line block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extralight tracking-tight" style={{ opacity: 0 }}>
                                     {t('title1')}
                                 </span>
-                                <span className="hero-title-line block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mt-2">
+                                <span className="hero-title-line block text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mt-2" style={{ opacity: 0 }}>
                                     {t('title2')}
                                 </span>
                             </h1>

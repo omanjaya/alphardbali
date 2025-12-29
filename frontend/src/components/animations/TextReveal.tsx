@@ -1,7 +1,10 @@
 'use client';
 
-import { useRef, useEffect, ReactNode } from 'react';
+import { useRef, useEffect, useLayoutEffect, ReactNode } from 'react';
 import { gsap, gsapConfig } from '@/lib/gsap/config';
+
+// Use useLayoutEffect on client, useEffect on server
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 interface TextRevealProps {
     children: ReactNode;
@@ -25,11 +28,14 @@ export function TextReveal({
 }: TextRevealProps) {
     const elementRef = useRef<HTMLDivElement>(null);
 
+    // Use layoutEffect to set initial state before paint (prevents flash)
+    useIsomorphicLayoutEffect(() => {
+        if (!elementRef.current) return;
+        gsap.set(elementRef.current, { opacity: 0, y, willChange: 'transform, opacity' });
+    }, [y]);
+
     useEffect(() => {
         if (!elementRef.current) return;
-
-        // Set initial state
-        gsap.set(elementRef.current, { opacity: 0, y });
 
         const ctx = gsap.context(() => {
             gsap.to(
@@ -39,11 +45,17 @@ export function TextReveal({
                     y: 0,
                     duration,
                     delay,
-                    ease: 'power2.inOut', // Smooth ease-in-out
+                    ease: 'power2.out',
                     scrollTrigger: {
                         trigger: elementRef.current,
                         start: 'top 90%',
                         once,
+                    },
+                    onComplete: () => {
+                        // Clean up will-change after animation
+                        if (elementRef.current) {
+                            elementRef.current.style.willChange = 'auto';
+                        }
                     },
                 }
             );
@@ -53,7 +65,7 @@ export function TextReveal({
     }, [delay, duration, y, once]);
 
     return (
-        <div ref={elementRef} className={className}>
+        <div ref={elementRef} className={className} style={{ opacity: 0 }}>
             {children}
         </div>
     );
@@ -74,10 +86,21 @@ export function SplitTextReveal({
     text,
     className = '',
     delay = 0,
-    stagger = 0.05,
+    stagger = 0.04,
     tag: Tag = 'h2',
 }: SplitTextRevealProps) {
     const containerRef = useRef<HTMLDivElement>(null);
+
+    // Set initial state before paint
+    useIsomorphicLayoutEffect(() => {
+        if (!containerRef.current) return;
+        const words = containerRef.current.querySelectorAll('.word');
+        gsap.set(words, {
+            opacity: 0,
+            y: 30,
+            willChange: 'transform, opacity'
+        });
+    }, []);
 
     useEffect(() => {
         if (!containerRef.current) return;
@@ -85,24 +108,24 @@ export function SplitTextReveal({
         const words = containerRef.current.querySelectorAll('.word');
 
         const ctx = gsap.context(() => {
-            gsap.fromTo(
-                words,
-                { opacity: 0, y: 40, rotateX: -90 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    rotateX: 0,
-                    duration: gsapConfig.duration.normal,
-                    stagger,
-                    delay,
-                    ease: 'back.out(1.7)',
-                    scrollTrigger: {
-                        trigger: containerRef.current,
-                        start: 'top 85%',
-                        once: true,
-                    },
-                }
-            );
+            gsap.to(words, {
+                opacity: 1,
+                y: 0,
+                duration: gsapConfig.duration.normal,
+                stagger,
+                delay,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: 'top 85%',
+                    once: true,
+                },
+                onComplete: () => {
+                    words.forEach(word => {
+                        (word as HTMLElement).style.willChange = 'auto';
+                    });
+                },
+            });
         });
 
         return () => ctx.revert();
@@ -112,12 +135,12 @@ export function SplitTextReveal({
 
     return (
         <div ref={containerRef} className="overflow-hidden">
-            <Tag className={className} style={{ perspective: '1000px' }}>
+            <Tag className={className}>
                 {words.map((word, index) => (
                     <span
                         key={index}
                         className="word inline-block mr-[0.25em]"
-                        style={{ transformStyle: 'preserve-3d' }}
+                        style={{ opacity: 0 }}
                     >
                         {word}
                     </span>
@@ -135,6 +158,13 @@ interface FadeInProps {
     className?: string;
 }
 
+const directions = {
+    up: { y: 40, x: 0 },
+    down: { y: -40, x: 0 },
+    left: { x: 40, y: 0 },
+    right: { x: -40, y: 0 },
+};
+
 /**
  * Fade in animation from different directions
  */
@@ -147,18 +177,18 @@ export function FadeIn({
 }: FadeInProps) {
     const elementRef = useRef<HTMLDivElement>(null);
 
+    // Set initial state before paint to prevent flash
+    useIsomorphicLayoutEffect(() => {
+        if (!elementRef.current) return;
+        gsap.set(elementRef.current, {
+            opacity: 0,
+            ...directions[direction],
+            willChange: 'transform, opacity'
+        });
+    }, [direction]);
+
     useEffect(() => {
         if (!elementRef.current) return;
-
-        const directions = {
-            up: { y: 60, x: 0 },
-            down: { y: -60, x: 0 },
-            left: { x: 60, y: 0 },
-            right: { x: -60, y: 0 },
-        };
-
-        // Set initial state
-        gsap.set(elementRef.current, { opacity: 0, ...directions[direction] });
 
         const ctx = gsap.context(() => {
             gsap.to(
@@ -167,13 +197,18 @@ export function FadeIn({
                     opacity: 1,
                     x: 0,
                     y: 0,
-                    duration: duration * 1.2, // Slightly longer for smoothness
+                    duration,
                     delay,
-                    ease: 'power2.inOut', // Smooth ease-in-out
+                    ease: 'power2.out',
                     scrollTrigger: {
                         trigger: elementRef.current,
                         start: 'top 90%',
                         once: true,
+                    },
+                    onComplete: () => {
+                        if (elementRef.current) {
+                            elementRef.current.style.willChange = 'auto';
+                        }
                     },
                 }
             );
@@ -183,7 +218,7 @@ export function FadeIn({
     }, [delay, duration, direction]);
 
     return (
-        <div ref={elementRef} className={className}>
+        <div ref={elementRef} className={className} style={{ opacity: 0 }}>
             {children}
         </div>
     );
@@ -207,33 +242,44 @@ export function ScaleIn({
 }: ScaleInProps) {
     const elementRef = useRef<HTMLDivElement>(null);
 
+    // Set initial state before paint
+    useIsomorphicLayoutEffect(() => {
+        if (!elementRef.current) return;
+        gsap.set(elementRef.current, {
+            opacity: 0,
+            scale: 0.9,
+            willChange: 'transform, opacity'
+        });
+    }, []);
+
     useEffect(() => {
         if (!elementRef.current) return;
 
         const ctx = gsap.context(() => {
-            gsap.fromTo(
-                elementRef.current,
-                { opacity: 0, scale: 0.8 },
-                {
-                    opacity: 1,
-                    scale: 1,
-                    duration,
-                    delay,
-                    ease: 'back.out(1.7)',
-                    scrollTrigger: {
-                        trigger: elementRef.current,
-                        start: 'top 85%',
-                        once: true,
-                    },
-                }
-            );
+            gsap.to(elementRef.current, {
+                opacity: 1,
+                scale: 1,
+                duration,
+                delay,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: elementRef.current,
+                    start: 'top 85%',
+                    once: true,
+                },
+                onComplete: () => {
+                    if (elementRef.current) {
+                        elementRef.current.style.willChange = 'auto';
+                    }
+                },
+            });
         });
 
         return () => ctx.revert();
     }, [delay, duration]);
 
     return (
-        <div ref={elementRef} className={className}>
+        <div ref={elementRef} className={className} style={{ opacity: 0 }}>
             {children}
         </div>
     );

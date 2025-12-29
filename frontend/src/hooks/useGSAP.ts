@@ -73,22 +73,31 @@ export function useStaggerAnimation(
         const elements = containerRef.current.querySelectorAll(selector);
         if (!elements.length) return;
 
-        const tween = gsap.fromTo(
-            elements,
-            { opacity: 0, y: 30 },
-            {
-                opacity: 1,
-                y: 0,
-                duration: gsapConfig.duration.normal,
-                stagger: gsapConfig.stagger.normal,
-                ease: gsapConfig.defaultEase,
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    ...gsapConfig.scrollTrigger,
-                },
-                ...animation,
-            }
-        );
+        // Set initial state immediately to prevent flash
+        gsap.set(elements, {
+            opacity: 0,
+            y: 25,
+            willChange: 'transform, opacity'
+        });
+
+        const tween = gsap.to(elements, {
+            opacity: 1,
+            y: 0,
+            duration: animation.duration || gsapConfig.duration.normal,
+            stagger: animation.stagger || gsapConfig.stagger.normal,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: 'top 85%',
+                once: true,
+            },
+            onComplete: () => {
+                // Clean up will-change
+                elements.forEach(el => {
+                    (el as HTMLElement).style.willChange = 'auto';
+                });
+            },
+        });
 
         return () => {
             tween.scrollTrigger?.kill();
@@ -106,6 +115,7 @@ export function useCounter(
     duration: number = 2
 ) {
     const counterRef = useRef({ value: 0 });
+    const lastValueRef = useRef(0);
 
     useEffect(() => {
         if (!elementRef.current) return;
@@ -116,12 +126,15 @@ export function useCounter(
             ease: 'power2.out',
             scrollTrigger: {
                 trigger: elementRef.current,
-                start: 'top 80%',
+                start: 'top 85%',
                 once: true,
             },
             onUpdate: () => {
-                if (elementRef.current) {
-                    elementRef.current.textContent = Math.round(counterRef.current.value).toLocaleString();
+                // Only update DOM when value actually changes (reduces layout thrashing)
+                const roundedValue = Math.round(counterRef.current.value);
+                if (roundedValue !== lastValueRef.current && elementRef.current) {
+                    lastValueRef.current = roundedValue;
+                    elementRef.current.textContent = roundedValue.toLocaleString();
                 }
             },
         });

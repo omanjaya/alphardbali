@@ -4,6 +4,17 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
+
+    // Performance optimizations
+    gsap.config({
+        force3D: true, // Use GPU acceleration
+        nullTargetWarn: false,
+    });
+
+    // ScrollTrigger performance settings
+    ScrollTrigger.config({
+        ignoreMobileResize: true, // Prevent recalculation on mobile address bar hide/show
+    });
 }
 
 // Default GSAP configuration
