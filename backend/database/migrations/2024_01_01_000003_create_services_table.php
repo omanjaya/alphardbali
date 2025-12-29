@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('services', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->text('description')->nullable();
+            $table->string('short_description', 500)->nullable();
+            $table->string('icon', 100)->nullable();
+            $table->string('image_path', 500)->nullable();
+            $table->decimal('price', 12, 2)->nullable();
+            $table->string('price_type', 50)->default('fixed'); // fixed, hourly, daily, custom
+            $table->json('features')->default('[]');
+            $table->boolean('is_active')->default(true);
+            $table->integer('sort_order')->default(0);
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->timestamps();
+
+            $table->index('slug');
+            $table->index('is_active');
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('services');
+    }
+};

@@ -1,40 +1,48 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
-import { ArrowRight, Users, Cog, Calendar, Check, Star } from 'lucide-react';
+import { ArrowRight, Users, Cog, Calendar, Check, Star, Loader2 } from 'lucide-react';
 import { gsap } from '@/lib/gsap/config';
 import { FadeIn } from '@/components/animations/TextReveal';
 import { useStaggerAnimation } from '@/hooks/useGSAP';
 import { Button } from '@/components/ui/button';
-import { siteConfig } from '@/config/site';
+import { BookingDialog } from '@/components/ui/BookingDialog';
 import { cn } from '@/lib/utils';
+import { getVehicles, type Vehicle } from '@/lib/api';
 
-const vehiclesData = [
+// Fallback data for when API is not available
+const fallbackVehicles = [
     {
         id: 1,
         name: 'Toyota Alphard Executive Lounge',
         slug: 'alphard-executive-lounge',
         type: 'Premium MPV',
         description: 'Kemewahan tertinggi dengan interior Executive Lounge. Dilengkapi dengan kursi captain seat yang dapat direbahkan hampir 180 derajat, complete entertainment system, dan ambient lighting premium.',
-        pricePerDay: 2500000,
-        images: ['/images/vehicles/alphard-white.png'],
-        specs: {
+        short_description: '',
+        price_per_day: '2500000',
+        price_per_hour: '350000',
+        formatted_price: 'Rp 2.500.000',
+        images: [],
+        primary_image: '/images/vehicles/alphard-white.png',
+        specifications: {
             seats: 7,
             transmission: 'Automatic',
             year: 2023,
             engine: '2.5L Hybrid',
+            fuelType: 'Hybrid',
+            color: 'White',
+            features: [
+                'Executive Lounge Seats',
+                'Ottoman Footrest',
+                'Rear Entertainment System',
+                'Premium JBL Sound',
+                'Ambient Lighting',
+                'Moonroof',
+                'Wireless Charging',
+                'Auto Sliding Door',
+            ],
         },
-        features: [
-            'Executive Lounge Seats',
-            'Ottoman Footrest',
-            'Rear Entertainment System',
-            'Premium JBL Sound',
-            'Ambient Lighting',
-            'Moonroof',
-            'Wireless Charging',
-            'Auto Sliding Door',
-        ],
     },
     {
         id: 2,
@@ -42,30 +50,55 @@ const vehiclesData = [
         slug: 'alphard-g',
         type: 'Premium MPV',
         description: 'Kenyamanan premium dengan harga lebih terjangkau. Ideal untuk perjalanan bisnis, keluarga, atau wisata dengan tingkat kenyamanan yang tetap mewah.',
-        pricePerDay: 1800000,
-        images: ['/images/vehicles/alphard-black.png'],
-        specs: {
+        short_description: '',
+        price_per_day: '1800000',
+        price_per_hour: '250000',
+        formatted_price: 'Rp 1.800.000',
+        images: [],
+        primary_image: '/images/vehicles/alphard-black.png',
+        specifications: {
             seats: 7,
             transmission: 'Automatic',
             year: 2022,
             engine: '2.5L',
+            fuelType: 'Bensin',
+            color: 'Black',
+            features: [
+                'Captain Seats',
+                'Leather Interior',
+                'Rear A/C Control',
+                'Power Sliding Door',
+                'Multi-terrain Select',
+                'Safety Sense',
+                'Apple CarPlay',
+                'Android Auto',
+            ],
         },
-        features: [
-            'Captain Seats',
-            'Leather Interior',
-            'Rear A/C Control',
-            'Power Sliding Door',
-            'Multi-terrain Select',
-            'Safety Sense',
-            'Apple CarPlay',
-            'Android Auto',
-        ],
     },
 ];
 
 export function FleetPage() {
     const heroRef = useRef<HTMLElement>(null);
     const cardsRef = useRef<HTMLDivElement>(null);
+    const [vehicles, setVehicles] = useState<Vehicle[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [bookingOpen, setBookingOpen] = useState(false);
+    const [selectedVehicle, setSelectedVehicle] = useState<{ id: number; name: string } | null>(null);
+
+    useEffect(() => {
+        async function fetchVehicles() {
+            try {
+                const data = await getVehicles();
+                setVehicles(data);
+            } catch (error) {
+                console.error('Failed to fetch vehicles:', error);
+                setVehicles(fallbackVehicles as Vehicle[]);
+            } finally {
+                setIsLoading(false);
+            }
+        }
+        fetchVehicles();
+    }, []);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -90,6 +123,11 @@ export function FleetPage() {
         duration: 0.8,
         stagger: 0.2,
     });
+
+    const handleBookClick = (vehicle: Vehicle) => {
+        setSelectedVehicle({ id: vehicle.id, name: vehicle.name });
+        setBookingOpen(true);
+    };
 
     return (
         <>
@@ -138,8 +176,13 @@ export function FleetPage() {
                     backgroundSize: '40px 40px',
                 }} />
 
+                {isLoading ? (
+                    <div className="flex items-center justify-center py-32">
+                        <Loader2 className="w-8 h-8 animate-spin text-amber-500" />
+                    </div>
+                ) : (
                 <div ref={cardsRef} className="container mx-auto px-4 lg:px-8 space-y-32">
-                    {vehiclesData.map((vehicle, index) => (
+                    {vehicles.map((vehicle, index) => (
                         <div
                             key={vehicle.id}
                             className={cn(
@@ -155,7 +198,7 @@ export function FleetPage() {
                                 <div className="relative">
                                     <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
                                         <Image
-                                            src={vehicle.images[0]}
+                                            src={vehicle.primary_image || vehicle.images?.[0]?.url || '/images/vehicles/alphard-white.png'}
                                             alt={vehicle.name}
                                             fill
                                             sizes="(max-width: 1024px) 100vw, 50vw"
@@ -170,7 +213,7 @@ export function FleetPage() {
                                     <div className="absolute bottom-4 left-4 bg-black text-white px-6 py-3">
                                         <div className="text-xs uppercase tracking-wider text-gray-400">Starting from</div>
                                         <div className="text-xl font-bold">
-                                            <span className="text-amber-400">Rp {(vehicle.pricePerDay / 1000000).toFixed(1)}jt</span>
+                                            <span className="text-amber-400">Rp {(parseFloat(vehicle.price_per_day) / 1000000).toFixed(1)}jt</span>
                                             <span className="text-sm font-normal text-gray-400">/day</span>
                                         </div>
                                     </div>
@@ -204,21 +247,21 @@ export function FleetPage() {
                                     <div className="flex flex-wrap gap-4">
                                         <div className="flex items-center gap-2 px-4 py-2 bg-gray-100">
                                             <Users className="w-4 h-4 text-amber-500" />
-                                            <span className="text-sm">{vehicle.specs.seats} Seats</span>
+                                            <span className="text-sm">{vehicle.specifications.seats} Seats</span>
                                         </div>
                                         <div className="flex items-center gap-2 px-4 py-2 bg-gray-100">
                                             <Cog className="w-4 h-4 text-amber-500" />
-                                            <span className="text-sm">{vehicle.specs.transmission}</span>
+                                            <span className="text-sm">{vehicle.specifications.transmission}</span>
                                         </div>
                                         <div className="flex items-center gap-2 px-4 py-2 bg-gray-100">
                                             <Calendar className="w-4 h-4 text-amber-500" />
-                                            <span className="text-sm">{vehicle.specs.year}</span>
+                                            <span className="text-sm">{vehicle.specifications.year}</span>
                                         </div>
                                     </div>
 
                                     {/* Features */}
                                     <div className="grid grid-cols-2 gap-3">
-                                        {vehicle.features.map((feature, i) => (
+                                        {vehicle.specifications.features.map((feature, i) => (
                                             <div key={i} className="flex items-center gap-3">
                                                 <div className="w-5 h-5 border border-amber-500 flex items-center justify-center flex-shrink-0">
                                                     <Check className="w-3 h-3 text-amber-500" />
@@ -232,19 +275,26 @@ export function FleetPage() {
                                     <Button
                                         size="lg"
                                         className="bg-black hover:bg-amber-500 text-white rounded-none px-10 py-6 group"
-                                        asChild
+                                        onClick={() => handleBookClick(vehicle)}
                                     >
-                                        <a href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Halo, saya tertarik dengan ${vehicle.name}`}>
-                                            <span className="text-xs uppercase tracking-[0.2em]">Book Now</span>
-                                            <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                        </a>
+                                        <span className="text-xs uppercase tracking-[0.2em]">Book Now</span>
+                                        <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                     </Button>
                                 </div>
                             </FadeIn>
                         </div>
                     ))}
                 </div>
+                )}
             </section>
+
+            {/* Booking Dialog */}
+            <BookingDialog
+                isOpen={bookingOpen}
+                onClose={() => setBookingOpen(false)}
+                vehicleId={selectedVehicle?.id}
+                vehicleName={selectedVehicle?.name}
+            />
         </>
     );
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
-import { MapPin, Phone, Mail, Clock, MessageCircle, Send, CheckCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircle, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { gsap } from '@/lib/gsap/config';
 import { FadeIn } from '@/components/animations/TextReveal';
 import { Button } from '@/components/ui/button';
@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
+import { submitContact } from '@/lib/api';
 
 export function KontakPage() {
     const heroRef = useRef<HTMLElement>(null);
@@ -20,6 +21,7 @@ export function KontakPage() {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -40,16 +42,27 @@ export function KontakPage() {
         return () => ctx.revert();
     }, []);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setError(null);
 
-        setTimeout(() => {
-            setIsSubmitting(false);
+        try {
+            await submitContact({
+                name: formState.name,
+                email: formState.email,
+                phone: formState.phone || undefined,
+                message: formState.message,
+            });
             setIsSubmitted(true);
             setFormState({ name: '', email: '', phone: '', message: '' });
-            setTimeout(() => setIsSubmitted(false), 3000);
-        }, 1500);
+            setTimeout(() => setIsSubmitted(false), 5000);
+        } catch (err: unknown) {
+            const apiError = err as { message?: string };
+            setError(apiError.message || 'Failed to send message. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const contactInfo = [
@@ -189,6 +202,13 @@ export function KontakPage() {
                                 <h3 className="text-2xl font-light text-gray-900 mb-8">
                                     Send a <span className="font-bold">Message</span>
                                 </h3>
+
+                                {error && (
+                                    <div className="flex items-center gap-3 p-4 mb-6 bg-red-50 border border-red-200 text-red-700">
+                                        <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                                        <p className="text-sm">{error}</p>
+                                    </div>
+                                )}
 
                                 {isSubmitted ? (
                                     <div className="flex flex-col items-center justify-center py-16 text-center">

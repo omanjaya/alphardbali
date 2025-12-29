@@ -1,22 +1,28 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
-import { ArrowRight, Check, Clock, Shield, Star } from 'lucide-react';
+import { ArrowRight, Check, Clock, Shield, Star, Loader2 } from 'lucide-react';
 import { gsap } from '@/lib/gsap/config';
 import { FadeIn } from '@/components/animations/TextReveal';
 import { useStaggerAnimation } from '@/hooks/useGSAP';
 import { Button } from '@/components/ui/button';
+import { BookingDialog } from '@/components/ui/BookingDialog';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
+import { getServices, type Service } from '@/lib/api';
 
-const servicesData = [
+// Fallback data
+const fallbackServices: Service[] = [
     {
         id: 1,
         name: 'Daily Rental',
         slug: 'sewa-harian',
         description: 'Rental Alphard dengan supir profesional untuk kebutuhan harian Anda. Cocok untuk meeting, jemput tamu VIP, atau keperluan bisnis lainnya.',
-        image: '/images/services/tour.png',
+        short_description: '',
+        icon: '/images/services/tour.png',
+        price: '1800000',
+        formatted_price: 'Rp 1.800.000',
         features: [
             'Minimal sewa 8 jam',
             'Supir profesional berlisensi',
@@ -25,14 +31,16 @@ const servicesData = [
             'Air mineral gratis',
             'Overtime tersedia',
         ],
-        priceStart: 1800000,
     },
     {
         id: 2,
         name: 'Airport Transfer',
         slug: 'airport-transfer',
         description: 'Layanan antar jemput Bandara Ngurah Rai dengan kenyamanan premium. Supir akan menunggu di area kedatangan dengan papan nama.',
-        image: '/images/services/airport-transfer.png',
+        short_description: '',
+        icon: '/images/services/airport-transfer.png',
+        price: '500000',
+        formatted_price: 'Rp 500.000',
         features: [
             'Penjemputan tepat waktu',
             'Flight tracking aktif',
@@ -41,14 +49,16 @@ const servicesData = [
             'Meet & greet service',
             'Free waiting 60 menit',
         ],
-        priceStart: 500000,
     },
     {
         id: 3,
         name: 'Wedding Car',
         slug: 'wedding-car',
         description: 'Mobil pengantin mewah untuk hari spesial Anda. Dekorasi elegan dan supir berpakaian formal untuk menambah kesan premium.',
-        image: '/images/services/wedding.png',
+        short_description: '',
+        icon: '/images/services/wedding.png',
+        price: '3000000',
+        formatted_price: 'Rp 3.000.000',
         features: [
             'Dekorasi bunga gratis',
             'Supir berpakaian formal',
@@ -57,14 +67,16 @@ const servicesData = [
             'Foto dokumentasi',
             'Red carpet service',
         ],
-        priceStart: 3000000,
     },
     {
         id: 4,
         name: 'Tour & Travel',
         slug: 'tour-wisata',
         description: 'Jelajahi keindahan Bali dengan kenyamanan maksimal. Supir kami mengenal setiap destinasi wisata di Bali dengan baik.',
-        image: '/images/services/tour.png',
+        short_description: '',
+        icon: '/images/services/tour.png',
+        price: '1500000',
+        formatted_price: 'Rp 1.500.000',
         features: [
             'Supir sebagai guide',
             'Fleksibel destinasi',
@@ -73,13 +85,31 @@ const servicesData = [
             'Parkir termasuk',
             'Photo spots suggestion',
         ],
-        priceStart: 1500000,
     },
 ];
 
 export function LayananPage() {
     const heroRef = useRef<HTMLElement>(null);
     const servicesRef = useRef<HTMLDivElement>(null);
+    const [services, setServices] = useState<Service[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [bookingOpen, setBookingOpen] = useState(false);
+    const [selectedService, setSelectedService] = useState<{ id: number; name: string } | null>(null);
+
+    useEffect(() => {
+        async function fetchServices() {
+            try {
+                const data = await getServices();
+                setServices(data);
+            } catch (error) {
+                console.error('Failed to fetch services:', error);
+                setServices(fallbackServices);
+            } finally {
+                setIsLoading(false);
+            }
+        }
+        fetchServices();
+    }, []);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -104,6 +134,11 @@ export function LayananPage() {
         duration: 0.8,
         stagger: 0.15,
     });
+
+    const handleBookClick = (service: Service) => {
+        setSelectedService({ id: service.id, name: service.name });
+        setBookingOpen(true);
+    };
 
     return (
         <>
@@ -164,8 +199,13 @@ export function LayananPage() {
                     backgroundSize: '40px 40px',
                 }} />
 
+                {isLoading ? (
+                    <div className="flex items-center justify-center py-32">
+                        <Loader2 className="w-8 h-8 animate-spin text-amber-500" />
+                    </div>
+                ) : (
                 <div ref={servicesRef} className="container mx-auto px-4 lg:px-8 space-y-32">
-                    {servicesData.map((service, index) => (
+                    {services.map((service, index) => (
                         <div
                             key={service.id}
                             id={service.slug}
@@ -182,7 +222,7 @@ export function LayananPage() {
                                 <div className="relative">
                                     <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
                                         <Image
-                                            src={service.image}
+                                            src={service.icon || '/images/services/tour.png'}
                                             alt={service.name}
                                             fill
                                             sizes="(max-width: 1024px) 100vw, 50vw"
@@ -221,7 +261,7 @@ export function LayananPage() {
                                     <div className="inline-flex items-baseline gap-2 bg-gray-100 px-6 py-3">
                                         <span className="text-sm text-gray-500">Starting from</span>
                                         <span className="text-2xl font-bold text-amber-600">
-                                            Rp {(service.priceStart / 1000).toLocaleString()}k
+                                            Rp {(parseFloat(service.price) / 1000).toLocaleString()}k
                                         </span>
                                     </div>
 
@@ -242,12 +282,10 @@ export function LayananPage() {
                                         <Button
                                             size="lg"
                                             className="bg-black hover:bg-amber-500 text-white rounded-none px-10 py-6 group"
-                                            asChild
+                                            onClick={() => handleBookClick(service)}
                                         >
-                                            <a href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Halo, saya tertarik dengan layanan ${service.name}`}>
-                                                <span className="text-xs uppercase tracking-[0.2em]">Book Now</span>
-                                                <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                            </a>
+                                            <span className="text-xs uppercase tracking-[0.2em]">Book Now</span>
+                                            <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                         </Button>
                                         <Button
                                             size="lg"
@@ -265,7 +303,16 @@ export function LayananPage() {
                         </div>
                     ))}
                 </div>
+                )}
             </section>
+
+            {/* Booking Dialog */}
+            <BookingDialog
+                isOpen={bookingOpen}
+                onClose={() => setBookingOpen(false)}
+                serviceId={selectedService?.id}
+                serviceName={selectedService?.name}
+            />
         </>
     );
 }
