@@ -34,19 +34,25 @@ RUN composer install --no-dev --optimize-autoloader --no-scripts --no-interactio
 # Copy application code
 COPY . .
 
-# Create SQLite database directory
-RUN mkdir -p database && touch database/database.sqlite
+# Create directories and set permissions
+RUN mkdir -p database storage/app/public storage/framework/cache storage/framework/sessions storage/framework/views bootstrap/cache \
+    && touch database/database.sqlite \
+    && chmod -R 775 storage bootstrap/cache database
 
 # Run post-install scripts
 RUN composer run-script post-autoload-dump --no-interaction || true
 
-# Cache config and routes
-RUN php artisan config:cache || true
-RUN php artisan route:cache || true
-RUN php artisan view:cache || true
+# Publish Filament assets
+RUN php artisan filament:assets || true
+RUN php artisan vendor:publish --tag=laravel-assets --ansi --force || true
+
+# Create storage link
+RUN php artisan storage:link || true
 
 # Expose port
 EXPOSE 8080
 
-# Start command
-CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-8080}
+# Start command - cache at runtime when env vars are available
+CMD php artisan config:clear && \
+    php artisan migrate --force && \
+    php artisan serve --host=0.0.0.0 --port=${PORT:-8080}
