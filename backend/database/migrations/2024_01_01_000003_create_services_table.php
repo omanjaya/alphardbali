@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('image_path', 500)->nullable();
             $table->decimal('price', 12, 2)->nullable();
             $table->string('price_type', 50)->default('fixed'); // fixed, hourly, daily, custom
-            $table->json('features')->default('[]');
+            $table->json('features')->nullable();
             $table->boolean('is_active')->default(true);
             $table->integer('sort_order')->default(0);
             $table->string('meta_title')->nullable();

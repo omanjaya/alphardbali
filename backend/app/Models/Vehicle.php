@@ -25,6 +25,10 @@ class Vehicle extends Model
         'meta_description',
     ];
 
+    protected $attributes = [
+        'specifications' => '{}',
+    ];
+
     protected $casts = [
         'specifications' => 'array',
         'price_per_day' => 'decimal:2',

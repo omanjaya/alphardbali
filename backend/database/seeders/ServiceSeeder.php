@@ -121,7 +121,10 @@ class ServiceSeeder extends Seeder
         ];
 
         foreach ($services as $serviceData) {
-            Service::create($serviceData);
+            Service::firstOrCreate(
+                ['slug' => $serviceData['slug']],
+                $serviceData
+            );
         }
     }
 }

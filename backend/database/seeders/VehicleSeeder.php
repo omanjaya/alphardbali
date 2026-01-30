@@ -65,25 +65,30 @@ class VehicleSeeder extends Seeder
             ],
         ];
 
+        $vehicleImages = [
+            'alphard-executive-lounge' => [
+                ['image_path' => 'vehicles/alphard-black.png', 'alt_text' => 'Toyota Alphard Executive Lounge - Exterior', 'is_primary' => true, 'sort_order' => 1],
+                ['image_path' => 'vehicles/interior.png', 'alt_text' => 'Toyota Alphard Executive Lounge - Interior', 'is_primary' => false, 'sort_order' => 2],
+            ],
+            'alphard-g' => [
+                ['image_path' => 'vehicles/alphard-white.png', 'alt_text' => 'Toyota Alphard G - Exterior', 'is_primary' => true, 'sort_order' => 1],
+                ['image_path' => 'vehicles/interior.png', 'alt_text' => 'Toyota Alphard G - Interior', 'is_primary' => false, 'sort_order' => 2],
+            ],
+        ];
+
         foreach ($vehicles as $vehicleData) {
-            $vehicle = Vehicle::create($vehicleData);
+            $vehicle = Vehicle::firstOrCreate(
+                ['slug' => $vehicleData['slug']],
+                $vehicleData
+            );
 
-            // Add placeholder images
-            VehicleImage::create([
-                'vehicle_id' => $vehicle->id,
-                'image_path' => 'vehicles/alphard-' . $vehicle->id . '-1.jpg',
-                'alt_text' => $vehicle->name . ' - Front View',
-                'is_primary' => true,
-                'sort_order' => 1,
-            ]);
-
-            VehicleImage::create([
-                'vehicle_id' => $vehicle->id,
-                'image_path' => 'vehicles/alphard-' . $vehicle->id . '-2.jpg',
-                'alt_text' => $vehicle->name . ' - Interior',
-                'is_primary' => false,
-                'sort_order' => 2,
-            ]);
+            $images = $vehicleImages[$vehicle->slug] ?? [];
+            foreach ($images as $imageData) {
+                VehicleImage::firstOrCreate(
+                    ['vehicle_id' => $vehicle->id, 'sort_order' => $imageData['sort_order']],
+                    $imageData
+                );
+            }
         }
     }
 }

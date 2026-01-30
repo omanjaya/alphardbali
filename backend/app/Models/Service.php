@@ -27,6 +27,10 @@ class Service extends Model
         'meta_description',
     ];
 
+    protected $attributes = [
+        'features' => '[]',
+    ];
+
     protected $casts = [
         'features' => 'array',
         'price' => 'decimal:2',

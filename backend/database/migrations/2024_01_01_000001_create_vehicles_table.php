@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('type')->default('Premium MPV');
             $table->text('description')->nullable();
             $table->string('short_description', 500)->nullable();
-            $table->json('specifications')->default('{}');
+            $table->json('specifications')->nullable();
             $table->decimal('price_per_day', 12, 2);
             $table->decimal('price_per_hour', 12, 2)->nullable();
             $table->boolean('is_active')->default(true);

@@ -13,11 +13,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Create admin user for Filament
-        User::factory()->create([
-            'name' => 'Admin',
-            'email' => 'admin@alphardbali.com',
-            'password' => bcrypt('admin123'),
-        ]);
+        User::firstOrCreate(
+            ['email' => 'admin@alphardbali.com'],
+            [
+                'name' => 'Admin',
+                'password' => bcrypt('admin123'),
+            ]
+        );
 
         // Seed all data
         $this->call([

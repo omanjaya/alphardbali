@@ -1,0 +1,77 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: alphardbali-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-secret}
+      MYSQL_DATABASE: ${DB_DATABASE:-alphardbali}
+      MYSQL_USER: ${DB_USERNAME:-alphardbali}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-secret}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: alphardbali-backend
+    restart: unless-stopped
+    environment:
+      APP_NAME: AlphardBali
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_URL: ${APP_URL:-http://localhost}
+      APP_KEY: ${APP_KEY:-base64:W3U9r74mohti1OQ7YsFWQmHydM1ShSRyvjpCLYTkN9U=}
+      DB_CONNECTION: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: ${DB_DATABASE:-alphardbali}
+      DB_USERNAME: ${DB_USERNAME:-alphardbali}
+      DB_PASSWORD: ${DB_PASSWORD:-secret}
+      SESSION_DRIVER: database
+      CACHE_STORE: database
+      QUEUE_CONNECTION: database
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost}
+      FONNTE_TOKEN: ${FONNTE_TOKEN:-}
+      FONNTE_ADMIN_PHONE: ${FONNTE_ADMIN_PHONE:-}
+    volumes:
+      - backend_storage:/app/storage/app
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-/api/v1}
+    container_name: alphardbali-frontend
+    restart: unless-stopped
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-/api/v1}
+
+  nginx:
+    image: nginx:alpine
+    container_name: alphardbali-nginx
+    restart: unless-stopped
+    ports:
+      - "${PORT:-80}:80"
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - backend_storage:/app/storage/app:ro
+    depends_on:
+      - backend
+      - frontend
+
+volumes:
+  mysql_data:
+  backend_storage:
